@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خريطة كلية الجبيل الصناعية التفاعلية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            color: #38bdf8;
+            margin: 0 0 5px 0;
+            font-size: 24px;
+        }
+        header p {
+            color: #94a3b8;
+            margin: 0;
+            font-size: 13px;
+        }
+        .desktop-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr 1fr;
+            gap: 15px;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        
+        .panel {
+            background: #111827;
+            border-radius: 14px;
+            padding: 15px;
+            border: 1px solid #1f2937;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        .panel h3 {
+            color: #38bdf8;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 6px;
+        }
+
+        /* حاوية الخريطة الصغيرة والصافية */
+        .map-container {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #334155;
+            background: #000;
+        }
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* 🟦 مربع الرموز المبعثرة (تم تصميمه بمساحة حرة لتكون الرموز مبعثرة ومتفرقة وغير متلاصقة على خط واحد) */
+        .scattered-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            background: #0f172a;
+            border: 2px dashed #334155;
+            border-radius: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        /* شكل الرموز المبعثرة بحرية داخل المربع */
+        .scattered-icon {
+            position: absolute;
+            background: #1e293b;
+            border: 2px solid #0284c7;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+        .scattered-icon:hover {
+            background: #0284c7;
+            border-color: #fff;
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 0 12px #38bdf8;
+        }
+        .scattered-icon span.emoji {
+            font-size: 16px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1e293b;
+            color: #38bdf8;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            border: 1px solid #334155;
+        }
+        .building-img-box {
+            width: 100%;
+            height: 140px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            background: #1f2937;
+            border: 1px solid #334155;
+        }
+        .building-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .panel p {
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0 0 8px 0;
+        }
+        .map-frame-box {
+            width: 100%;
+            height: 130px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            margin-top: 6px;
+        }
+        .map-frame-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .nav-btn {
+            display: block;
+            text-align: center;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            padding: 7px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .nav-btn:hover {
+            background: #0369a1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>خريطة كلية الجبيل الصناعية التفاعلية</h1>
+        <p>انقر على أي رمز مبعثر في لوحة الرموز لمعرفة تفاصيل المبنى، صورته، وموقعه على خريطة جوجل</p>
+    </header>
+
+    <div class="desktop-layout">
+        
+        <!-- 1. قسم الخريطة الأساسية (صغيرة وواضحة) -->
+        <div class="panel">
+            <h3>خريطة الكلية</h3>
+            <div class="map-container">
+                <img src="image.png" alt="خريطة كلية الجبيل الصناعية">
+            </div>
+            <p style="margin-top: 10px; font-size: 12px; color: #94a3b8; text-align: center;">الخريطة معروضة بشكل كامل وصافي.</p>
+        </div>
+
+        <!-- 2. مربع الرموز المبعثرة (الموزعة بحرية ودون أن تكون على خط واحد) -->
+        <div class="panel">
+            <h3>دليل الرموز (مبعثرة)</h3>
+            <p style="font-size: 12px; color: #94a3b8; margin-bottom: 5px;">انقر على أي رمز ليعرض تفاصيله:</p>
+            
+            <div class="scattered-box">
+                <!-- تم توزيع الرموز عشوائياً وفي أماكن متفرقة (وسط، يمين، يسار، أعلى، أسفل) -->
+                <div class="scattered-icon" style="top: 15px; right: 20px;" onclick="selectBuilding('admin')">
+                    <span class="emoji">🏛️</span> مبنى الإدارة
+                </div>
+                
+                <div class="scattered-icon" style="top: 25px; left: 15px;" onclick="selectBuilding('gym')">
+                    <span class="emoji">⚽</span> الصالة الرياضية
+                </div>
+
+                <div class="scattered-icon" style="top: 85px; right: 110px;" onclick="selectBuilding('mosque')">
+                    <span class="emoji">🕌</span> المسجد
+                </div>
+
+                <div class="scattered-icon" style="top: 90px; left: 20px;" onclick="selectBuilding('mmet')">
+                    <span class="emoji">⚙️</span> الهندسة الميكانيكية
+                </div>
+
+                <div class="scattered-icon" style="top: 160px; right: 15px;" onclick="selectBuilding('clinic')">
+                    <span class="emoji">🏥</span> عيادة الكلية
+                </div>
+
+                <div class="scattered-icon" style="top: 155px; left: 95px;" onclick="selectBuilding('mit')">
+                    <span class="emoji">💻</span> تقنية المعلومات
+                </div>
+
+                <div class="scattered-icon" style="top: 220px; right: 120px;" onclick="selectBuilding('library')">
+                    <span class="emoji">📚</span> المكتبة
+                </div>
+
+                <div class="scattered-icon" style="top: 215px; left: 15px;" onclick="selectBuilding('restaurant')">
+                    <span class="emoji">🍽️</span> مطعم الكلية
+                </div>
+
+                <div class="scattered-icon" style="top: 290px; right: 25px;" onclick="selectBuilding('housing')">
+                    <span class="emoji">🏢</span> سكن الطلاب
+                </div>
+
+                <div class="scattered-icon" style="top: 295px; left: 80px;" onclick="selectBuilding('english')">
+                    <span class="emoji">🔤</span> مركز اللغة
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. قسم تفاصيل المبنى والموقع الجغرافي -->
+        <div class="panel">
+            <h3>تفاصيل المبنى والموقع</h3>
+            <div id="buildingDetails">
+                <span class="badge">جاهز للاستعراض</span>
+                <div class="building-img-box">
+                    <img id="buildingImg" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&auto=format&fit=crop&q=80" alt="صورة المبنى">
+                </div>
+                <h4 id="buildingTitle" style="color: #f8fafc; margin: 0 0 6px 0; font-size: 15px;">اختر رمزاً من المربع</h4>
+                <p id="buildingDesc">انقر على أي أيقونة مبعثرة في مربع الرموز لاستعراض تفاصيل المبنى وصورته هنا.</p>
+            </div>
+
+            <div class="map-frame-box">
+                <iframe id="googleMap" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.425!2d49.6585!3d27.0056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e4a8f95a0d33e53%3A0x5d9b54200b3e6e8e!2sJubail%20Industrial%20College!5e0!3m2!1sar!2ssa!4v1650000000000" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <a id="directionsBtn" href="https://maps.app.goo.g/JubailIndustrialCollege" target="_blank" class="nav-btn">فتح الاتجاهات في Google Maps</a>
+        </div>
+
+    </div>
+
+    <script>
+        const buildingsData = {
+            admin: {
+                name: "مبنى الإدارة + المسرح + مركز الكتب",
+                tag: "المبنى الرئيسي",
+                desc: "يضم مكاتب إدارة الكلية، المسرح الرئيسي للفعاليات، مركز الكتب الجامعية والمطبعة.",
+                img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Admin Building"
+            },
+            mmet: {
+                name: "قسم تقنية الهندسة الميكانيكية (MMET)",
+                tag: "قسم أكاديمي",
+                desc: "يحتوي على الورش والمعامل الهندسية الميكانيكية المتقدمة وقاعات المحاضرات.",
+                img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Mechanical Engineering Department"
+            },
+            mit: {
+                name: "قسم الإدارة وتقنية المعلومات (MIT Department)",
+                tag: "قسم أكاديمي",
+                desc: "يضم مختبرات الحاسب الآلي وبرامج أنظمة المعلومات الإدارية وتقنية المعلومات.",
+                img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College IT Department"
+            },
+            english: {
+                name: "مركز اللغة الإنجليزية",
+                tag: "مرافق اللغة",
+                desc: "يقدم البرامج التحضيرية في اللغة الإنجليزية للطلاب المستجدين لتطوير مهاراتهم.",
+                img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College English Language Center"
+            },
+            gym: {
+                name: "القاعة متعددة الأغراض + الصالة الرياضية",
+                tag: "مرافق رياضية",
+                desc: "تضم الملاعب المغلقة، صالة الأجهزة الرياضية، ومرافق الأنشطة الطلابية.",
+                img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Gym"
+            },
+            library: {
+                name: "المكتبة ومركز مصادر التعليم",
+                tag: "مصادر التعلم",
+                desc: "توفر المراجع العلمية، القاعات البحثية، ومساحات الدراسة الفردية والجماعية.",
+                img: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Library"
+            },
+            housing: {
+                name: "سكن الطلاب والخدمات",
+                tag: "الخدمات السكنية",
+                desc: "مجمعات سكنية متكاملة ومجهزة لإقامة الطلاب المغتربين والخدمات التابعة لها.",
+                img: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Student Housing"
+            },
+            restaurant: {
+                name: "مطعم الكلية",
+                tag: "خدمات الإعاشة",
+                desc: "يقدم وجبات الغداء والخدمات الغذائية للطلاب ومنسوبي الكلية.",
+                img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Restaurant"
+            },
+            clinic: {
+                name: "عيادة الكلية",
+                tag: "الخدمات الطبية",
+                desc: "تقدم الإسعافات الأولية والرعاية الطبية الطارئة لمنسوبي الكلية.",
+                img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Clinic"
+            },
+            mosque: {
+                name: "مسجد الكلية",
+                tag: "دور العبادة",
+                desc: "مسجد رئيسي لإقامة الصلوات اليومية والجمعة.",
+                img: "https://images.unsplash.com/photo-1564769625905-50e93615e769?w=600&auto=format&fit=crop&q=80",
+                query: "Jubail Industrial College Mosque"
+            }
+        };
+
+        function selectBuilding(key) {
+            const data = buildingsData[key];
+            if (!data) return;
+
+            document.getElementById('buildingDetails').innerHTML = `
+                <span class="badge">${data.tag}</span>
+                <div class="building-img-box">
+                    <img src="${data.img}" alt="${data.name}">
+                </div>
+                <h4 style="color: #f8fafc; margin: 0 0 6px 0; font-size: 15px;">${data.name}</h4>
+                <p>${data.desc}</p>
+            `;
+
+            document.getElementById('googleMap').src = `https://maps.google.com/maps?q=${encodeURIComponent(data.query)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+            document.getElementById('directionsBtn').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.query)}`;
+        }
+    </script>
+
+</body>
+</html>
