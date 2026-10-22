@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIC Portal-Academic Departments</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jic: {
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            cardHover: '#1f2937',
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            indigo: '#6366f1',
+                            accent: '#00f2fe'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1329;
+            color: #f3f4f6;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(10, 15, 29, 0.92) 0%, rgba(15, 23, 42, 0.88) 100%), url('https://placehold.co/1920x1080/0f172a/ffffff?text=Jubail+Industrial+College+Campus') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dept-gradient-1 { background: linear-gradient(135deg, #f0f6ff 0%, #e2e8f0 100%); color: #1e293b; }
+        .dept-gradient-2 { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); color: #1e293b; }
+        .dept-gradient-3 { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); color: #1e293b; }
+        .dept-gradient-4 { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); color: #1e293b; }
+
+
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    #
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* Logo & Accent Modern Gradients */
+    .bg-gradient-jic {
+      background: linear-gradient(135deg, #0b1b3d 0%, #1e3a8a 50%, #00d2ff 100%);
+    }
+
+    .bg-gradient-hero {
+      background: linear-gradient(to right, rgba(11, 27, 61, 0.92), rgba(15, 42, 91, 0.82)), 
+                  url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .text-gradient-jic {
+      background: linear-gradient(135deg, #00d2ff 0%, #00f5d4 50%, #7b2cbf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-brand {
+      background: linear-gradient(135deg, #102a43 0%, #1d4ed8 60%, #00d2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Custom vertical tab button */
+    .vertical-tab {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-[#0a0f1d]/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 p-0.5 shadow-md group-hover:shadow-cyan-500/25 transition-all duration-300">
+            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+              <!-- Inline SVG replicating the student-reading logo icon -->
+              <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <circle cx="50" cy="22" r="14" fill="url(#logoGradHead)" />
+                <!-- Open Book -->
+                <path d="M50 48 L20 38 L20 76 L50 86 Z" fill="url(#logoGradLeft)" />
+                <path d="M50 48 L80 38 L80 76 L50 86 Z" fill="url(#logoGradRight)" />
+                <!-- Hands / Body Frame -->
+                <path d="M18 54 C12 54 10 66 18 68 C22 69 24 64 22 58 Z" fill="#00f5d4" />
+                <path d="M82 54 C88 54 90 66 82 68 C78 69 76 64 78 58 Z" fill="#00d2ff" />
+                <defs>
+                  <linearGradient id="logoGradHead" x1="36" y1="8" x2="64" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7b2cbf" />
+                    <stop offset="1" stop-color="#00d2ff" />
+                  </linearGradient>
+                  <linearGradient id="logoGradLeft" x1="20" y1="38" x2="50" y2="86" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#00f5d4" />
+                    <stop offset="1" stop-color="#1d4ed8" />
+                  </linearGradient>
+                  <linearGradient id="logoGradRight" x1="50" y1="48" x2="80" y2="76" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1d4ed8" />
+                    <stop offset="1" stop-color="#7b2cbf" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="text-xl font-extrabold tracking-tight flex items-center gap-1">
+              <span>JIC</span>
+              <span class="text-gradient-jic font-black">Portal</span>
+            </div>
+            <span class="text-[10px] uppercase tracking-widest font-semibold text-slate-400 -mt-1">Student Guider</span>
+          </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <a href="index.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 font-medium transition-all text-sm">Home</a>
+                <a href="Dep.html" class="px-4 py-2 rounded-lg text-white bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 font-semibold text-sm shadow-sm">Departments</a>
+
+                <a href="index.html#resources" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 font-medium transition-all text-sm">Knowledge Sources</a>
+
+            </nav>>
+
+            <!-- Quick Action / Calendar button -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <a href="#departments-list" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-cyan-500/20 transition-all flex items-center space-x-2">
+                    <span>Explore All 8</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800/50">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown --
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0d152b] border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 font-medium text-sm">Home</a>
+            <a href="departments.html" class="block px-3 py-2 rounded-lg text-white bg-cyan-500/20 font-semibold text-sm">Departments</a>
+            <a href="index.html#modules" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 font-medium text-sm">Modules</a>
+            <a href="index.html#resources" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 font-medium text-sm">Knowledge Sources</a>
+            <a href="index.html#contact" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 font-medium text-sm">Support</a>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs & Hero Section -->
+    <section class="hero-bg py-16 md:py-24 border-b border-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0f1d]/50 to-[#0a0f1d]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Breadcrumbs --
+            <nav class="flex text-sm text-slate-400 mb-6 space-x-2 items-center">
+                <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
+                <i class="fa-solid fa-chevron-right text-xs text-slate-600"></i>
+                <span class="text-slate-300">Colleges and Institutes in Jubail</span>
+                <i class="fa-solid fa-chevron-right text-xs text-slate-600"></i>
+                <span class="text-slate-300">Jubail Industrial College</span>
+                <i class="fa-solid fa-chevron-right text-xs text-slate-600"></i>
+                <span class="text-cyan-400 font-medium">Academic Departments</span>
+            </nav>
+<!-- Breadcrumbs -->
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full px-4 py-1.5 mb-6 text-cyan-300 text-xs font-semibold tracking-wide uppercase shadow-sm">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Jubail Industrial College Faculties</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                    Academic <span class="gradient-text">Departments</span> & Programs
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+                    Discover the comprehensive academic units at Jubail Industrial College. Dedicated to excellence in technical, engineering, business, and foundational education, empowering students for successful professional careers.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#departments-list" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-lg shadow-cyan-500/25 transition-all flex items-center space-x-2">
+                        <span>Browse Departments</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <a href="index.html" class="glass-card hover:bg-slate-800 text-white font-medium px-6 py-3 rounded-xl transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-arrow-left text-cyan-400"></i>
+                        <span>Back to Main Portal</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Container -->
+    <main id="departments-list" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+        <!-- Intro Banner for Layout Pattern -->
+        <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">College Department Directory</h2>
+            <p class="text-slate-400 text-sm">Organized with alternating layout perspectives and highlighted leadership profiles for quick student reference.</p>
+        </div>
+
+        <!-- #1 Business Administration Department -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Content: Text / Right layout (Odd index: text left, badge right) -->
+                <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-cyan-500/20 text-cyan-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-cyan-500/30">Department #1</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-cyan-400 to-blue-500 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">01</span>
+                            Business Administration Department
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-cyan-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                The Department of Business Administration strives to prepare students for successful professional careers across various business fields. The department offers a range of programs in areas such as business administration, management information systems, accounting, human resources, logistics and supply chain management, and office administration. These programs provide an educational environment that integrates academic knowledge with practical training, equipping graduates with effective organizational, communication, and technical skills that enable them to succeed in diverse sectors and dynamic environments.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Dr. Aqel Al-Sulami</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700">Business & Management</span>
+                    </div>
+                </div>
+                <!-- Right Visual / Accent Background -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-blue-900/40 via-indigo-950/60 to-slate-900 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-l border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-2xl shadow-cyan-500/20 mb-6 transform hover:rotate-3 transition-transform">
+                        <i class="fa-solid fa-chart-pie text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">Professional Business Programs</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">Accounting, MIS, HR, Logistics & Supply Chain, and Office Administration.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-cyan-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-cyan-400 mr-1.5"></i> Practical Training & Academic Integration
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- #2 Chemical Engineering Department -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Visual / Accent Background (Even index: visual left, text right) -->
+                <div class="lg:col-span-5 order-2 lg:order-1 bg-gradient-to-br from-indigo-950/60 via-slate-900 to-cyan-950/40 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-r border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-indigo-500 to-cyan-500 flex items-center justify-center shadow-2xl shadow-indigo-500/20 mb-6 transform hover:-rotate-3 transition-transform">
+                        <i class="fa-solid fa-flask text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">Industrial Chemical Engineering</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">Interactive curricula, modern labs, outcome-based assessments, and local industry support.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-indigo-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-indigo-400 mr-1.5"></i> Specialized Courses for Local Industry
+                    </div>
+                </div>
+                <!-- Right Content -->
+                <div class="lg:col-span-7 order-1 lg:order-2 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-indigo-500/20 text-indigo-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-indigo-500/30">Department #2</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-indigo-400 to-cyan-500 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">02</span>
+                            Chemical Engineering Department
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-indigo-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                The Department of Chemical Engineering has established several objectives to fulfill its mission, focusing on creating a supportive and conducive educational environment. This includes developing and implementing interactive, innovative curricula; adopting effective teaching and learning strategies; conducting outcome-based assessments; and formulating continuous improvement plans, all supported by modern, state-of-the-art educational facilities. Beyond the formal curriculum, the department encourages students to actively participate in engineering project competitions, career fairs, scientific clubs, and other extracurricular activities.
+                            </p>
+                            <p>
+                                Furthermore, the department plays a vital role in advancing the professional paths of engineers, operators, technicians, and other industrial trainees by organizing and delivering specialized programs and courses tailored to the needs of local industry and the community.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Dr. Thamer Al-Dhafiri</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-indigo-300 px-3 py-1.5 rounded-lg border border-slate-700">Engineering Faculty</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- #3 Mechanical Engineering Department -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-blue-500/20 text-blue-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-blue-500/30">Department #3</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-blue-400 to-indigo-500 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">03</span>
+                            Mechanical Engineering Department
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-blue-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                The Department of Mechanical Engineering has established several objectives to fulfill its mission by defining tasks focused on creating a supportive and conducive educational environment. This includes developing and implementing interactive and innovative curricula, adopting effective teaching and learning strategies, conducting outcome-based assessments, and formulating action plans for continuous improvement—all supported by state-of-the-art laboratory equipment and advanced educational facilities. Beyond the formal curriculum, the department encourages students to actively participate in engineering project competitions, career fairs, scientific clubs, the student chapter of the American Society of Mechanical Engineers (ASME), and various other extracurricular activities.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Dr. Shabib Al-Khalidi</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700">ASME Student Chapter</span>
+                    </div>
+                </div>
+                <!-- Right Visual -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-blue-900/40 via-slate-900 to-indigo-950/40 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-l border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center shadow-2xl shadow-blue-500/20 mb-6 transform hover:rotate-3 transition-transform">
+                        <i class="fa-solid fa-gears text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">Mechanical Systems & Labs</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">State-of-the-art laboratory equipment and ASME student chapter engagement.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-blue-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-blue-400 mr-1.5"></i> Advanced Engineering Laboratories
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- #4 Electrical Engineering Department -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Visual -->
+                <div class="lg:col-span-5 order-2 lg:order-1 bg-gradient-to-br from-cyan-950/40 via-slate-900 to-blue-950/40 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-r border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center shadow-2xl shadow-cyan-500/20 mb-6 transform hover:-rotate-3 transition-transform">
+                        <i class="fa-solid fa-bolt text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">Electrical & Automation</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">IEEE & ISA student sections, strong industrial ties, and custom technical curricula.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-cyan-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-cyan-400 mr-1.5"></i> IEEE & ISA Affiliated Activities
+                    </div>
+                </div>
+                <!-- Right Content -->
+                <div class="lg:col-span-7 order-1 lg:order-2 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-cyan-500/20 text-cyan-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-cyan-500/30">Department #4</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-cyan-400 to-blue-500 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">04</span>
+                            Electrical Engineering Department
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-cyan-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                The Department of Electrical Engineering has established several objectives to fulfill its mission by defining tasks focused on creating a supportive and conducive educational environment. This includes developing and implementing interactive and innovative curricula, adopting effective teaching and learning strategies, conducting outcome-based assessments, and formulating action plans for continuous improvement—all supported by state-of-the-art laboratory equipment and advanced educational facilities.
+                            </p>
+                            <p>
+                                The Department of Electrical Engineering maintains strong ties with the industrial sector, valuing their expertise and incorporating their feedback into its academic curricula. Furthermore, the department offers courses specifically designed to meet the needs of local industry and the broader community. In addition to curricular activities, the department encourages its students to actively participate in engineering project competitions, career fairs, scientific clubs, the Institute of Electrical and Electronics Engineers (IEEE), the International Society of Automation (ISA) student section, and various other extracurricular activities.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Dr. Faris Al-Harbi</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700">IEEE & ISA Chapters</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- #5 Department of English -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-indigo-500/20 text-indigo-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-indigo-500/30">Department #5</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-indigo-400 to-purple-500 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">05</span>
+                            Department of English
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-indigo-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                The Department of English strives to provide its students with high-quality education in the English language, linguistics, literature, and translation. It is committed to enabling students to achieve linguistic proficiency, while also acquiring the academic and professional skills that contribute to their success in the job market.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Ms. Hind Al-Zahrani</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-indigo-300 px-3 py-1.5 rounded-lg border border-slate-700">Languages & Translation</span>
+                    </div>
+                </div>
+                <!-- Right Visual -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-indigo-950/50 via-slate-900 to-purple-950/40 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-l border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center shadow-2xl shadow-indigo-500/20 mb-6 transform hover:rotate-3 transition-transform">
+                        <i class="fa-solid fa-language text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">Linguistics & Translation</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">Achieving linguistic proficiency and professional market skills.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-indigo-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-indigo-400 mr-1.5"></i> High-Quality Communication Skills
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- #6 Department of Architecture and Planning -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Visual -->
+                <div class="lg:col-span-5 order-2 lg:order-1 bg-gradient-to-br from-blue-950/40 via-slate-900 to-cyan-950/50 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-r border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-blue-500 to-cyan-400 flex items-center justify-center shadow-2xl shadow-blue-500/20 mb-6 transform hover:-rotate-3 transition-transform">
+                        <i class="fa-solid fa-compass-drafting text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">Architecture & Urban Planning</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">Fostering creativity, critical thinking, and Islamic values in design.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-blue-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-blue-400 mr-1.5"></i> Ethical & Socially Responsible Practices
+                    </div>
+                </div>
+                <!-- Right Content -->
+                <div class="lg:col-span-7 order-1 lg:order-2 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-blue-500/20 text-blue-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-blue-500/30">Department #6</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-blue-400 to-cyan-400 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">06</span>
+                            Department of Architecture and Planning
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-blue-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                The Department of Architecture and Planning is dedicated to providing a high-quality educational environment that fosters creativity, critical thinking, and technical skills in the fields of architecture and planning. The department prepares its graduates to uphold ethical and socially responsible practices, in alignment with Islamic values. Graduates are distinguished by their effective communication skills, proficient use of technology, and active engagement in both individual and collective initiatives. The department continuously develops its curricula and training programs to meet evolving professional and societal needs, by building and maintaining strong relationships with partners in the industrial sector.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Ms. Rawan Nasif</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700">Design & Planning</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- #7 Department of Computer Science and Information Technology -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-cyan-500/20 text-cyan-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-cyan-500/30">Department #7</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-cyan-400 to-blue-500 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">07</span>
+                            Department of Computer Science and Information Technology
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-cyan-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                In pursuit of its mission, the Department of Computer Science and Information Technology strives to develop and implement interactive curricula, apply effective teaching and learning strategies, conduct outcome-based assessments, and establish action plans for continuous improvement, utilizing modern educational facilities. These efforts contribute to fostering a supportive and conducive learning environment. In addition to curricular requirements, the department encourages its students to engage actively in extracurricular activities.
+                            </p>
+                            <p>
+                                <strong>Programs Offered:</strong> Diploma of Science in Management and Information Technology, Bachelor of Science in Computer Science, and Bachelor of Science in Information Technology. The Diploma program is fully accredited by the Accreditation Council for Business Schools and Programs (ACBSP).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Dr. Faisal Al-Amri</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700">ACBSP Accredited</span>
+                    </div>
+                </div>
+                <!-- Right Visual -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-cyan-950/50 via-slate-900 to-blue-950/50 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-l border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center shadow-2xl shadow-cyan-500/20 mb-6 transform hover:rotate-3 transition-transform">
+                        <i class="fa-solid fa-laptop-code text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">CS & IT Innovation</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">B.Sc. Computer Science, B.Sc. IT, and ACBSP Accredited Diploma programs.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-cyan-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-cyan-400 mr-1.5"></i> Fully Accredited Diploma & Degrees
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- #8 General Studies Department -->
+        <article class="bg-slate-900/90 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl transition-all hover:border-slate-700">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left Visual -->
+                <div class="lg:col-span-5 order-2 lg:order-1 bg-gradient-to-br from-indigo-950/40 via-slate-900 to-blue-950/50 p-8 sm:p-12 flex flex-col justify-center items-center text-center border-t lg:border-t-0 lg:border-r border-slate-800">
+                    <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-indigo-500 to-blue-600 flex items-center justify-center shadow-2xl shadow-indigo-500/20 mb-6 transform hover:-rotate-3 transition-transform">
+                        <i class="fa-solid fa-book-open-reader text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-2">Preparatory & Foundational Studies</h4>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-xs mb-6">Mathematics, Physics, Chemistry, and Islamic Culture for all college programs.</p>
+                    <div class="w-full bg-slate-800/80 rounded-xl p-3 border border-slate-700 text-xs text-indigo-300 font-medium">
+                        <i class="fa-solid fa-circle-check text-indigo-400 mr-1.5"></i> Bridging Secondary to College Programs
+                    </div>
+                </div>
+                <!-- Right Content -->
+                <div class="lg:col-span-7 order-1 lg:order-2 p-8 sm:p-12 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="bg-indigo-500/20 text-indigo-300 font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider border border-indigo-500/30">Department #8</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-clock mr-1"></i> JIC Faculty</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                            <span class="bg-gradient-to-r from-indigo-400 to-blue-500 py-1 px-4 rounded-xl text-slate-950 shadow-md inline-block mr-3 text-lg sm:text-xl font-extrabold">08</span>
+                            General Studies Department
+                        </h3>
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <h4 class="text-indigo-300 font-semibold text-sm uppercase tracking-wider">About the Department:</h4>
+                            <p>
+                                The General Studies Department is one of the first academic units to engage with new students joining the college. To fulfill its mission, the department provides a supportive learning environment, offering a wide range of courses—utilizing state-of-the-art educational facilities—to enhance student potential and provide ongoing support throughout their studies at Jubail Industrial College.
+                            </p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-300 text-sm">
+                                <li>Bridging the gap between secondary education and specialized programs during the preparatory year.</li>
+                                <li>Delivering specialized courses in mathematics, physics, chemistry, and Islamic culture.</li>
+                                <li>Providing courses specifically designed to meet local needs of industry and the community.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Department Head</span>
+                                <span class="text-white font-semibold text-sm sm:text-base">Dr. Muaidh Al-Hashibri</span>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-slate-800 text-indigo-300 px-3 py-1.5 rounded-lg border border-slate-700">Preparatory & Foundational</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#070b17] border-t border-slate-800 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 p-0.5 shadow-md group-hover:shadow-cyan-500/25 transition-all duration-300">
+            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+              <!-- Inline SVG replicating the student-reading logo icon -->
+              <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <circle cx="50" cy="22" r="14" fill="url(#logoGradHead)" />
+                <!-- Open Book -->
+                <path d="M50 48 L20 38 L20 76 L50 86 Z" fill="url(#logoGradLeft)" />
+                <path d="M50 48 L80 38 L80 76 L50 86 Z" fill="url(#logoGradRight)" />
+                <!-- Hands / Body Frame -->
+                <path d="M18 54 C12 54 10 66 18 68 C22 69 24 64 22 58 Z" fill="#00f5d4" />
+                <path d="M82 54 C88 54 90 66 82 68 C78 69 76 64 78 58 Z" fill="#00d2ff" />
+                <defs>
+                  <linearGradient id="logoGradHead" x1="36" y1="8" x2="64" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7b2cbf" />
+                    <stop offset="1" stop-color="#00d2ff" />
+                  </linearGradient>
+                  <linearGradient id="logoGradLeft" x1="20" y1="38" x2="50" y2="86" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#00f5d4" />
+                    <stop offset="1" stop-color="#1d4ed8" />
+                  </linearGradient>
+                  <linearGradient id="logoGradRight" x1="50" y1="48" x2="80" y2="76" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1d4ed8" />
+                    <stop offset="1" stop-color="#7b2cbf" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="text-xl font-extrabold tracking-tight flex items-center gap-1">
+              <span>JIC</span>
+              <span class="text-gradient-jic font-black">Portal</span>
+            </div>
+            <span class="text-[10px] uppercase tracking-widest font-semibold text-slate-400 -mt-1">Student Guider</span>
+          </div>
+            </div>
+            <div class="flex items-center space-x-6 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-cyan-400 transition-colors">Home Portal</a>
+                <a href="Dep.html" class="hover:text-cyan-400 transition-colors">Departments</a>
+                <a href="index.html#modules" class="hover:text-cyan-400 transition-colors">Modules</a>
+            </div>
+            <div class="text-xs text-slate-500">
+                &copy; 2026 Jubail Industrial College. Graduation Project Initiative. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script for Mobile Navigation -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
