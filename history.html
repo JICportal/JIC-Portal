@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIC Portal - About Jubail Industrial College & History</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jic: {
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            cardHover: '#1f2937',
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            indigo: '#6366f1',
+                            accent: '#00f2fe'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1329;
+            color: #f3f4f6;
+        }
+
+        .hero-banner {
+            background: linear-gradient(180deg, rgba(10, 15, 29, 0.7) 0%, rgba(11, 19, 41, 0.95) 100%), 
+                        url('1676204394977.jpg') center/cover no-repeat;
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(6, 182, 212, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-gradient {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0f1d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    
+   body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1329;
+            color: #f3f4f6;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(10, 15, 29, 0.92) 0%, rgba(15, 23, 42, 0.88) 100%), url('https://placehold.co/1920x1080/0f172a/ffffff?text=Jubail+Industrial+College+Campus') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dept-gradient-1 { background: linear-gradient(135deg, #f0f6ff 0%, #e2e8f0 100%); color: #1e293b; }
+        .dept-gradient-2 { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); color: #1e293b; }
+        .dept-gradient-3 { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); color: #1e293b; }
+        .dept-gradient-4 { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); color: #1e293b; }
+
+
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    #
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* Logo & Accent Modern Gradients */
+    .bg-gradient-jic {
+      background: linear-gradient(135deg, #0b1b3d 0%, #1e3a8a 50%, #00d2ff 100%);
+    }
+
+    .bg-gradient-hero {
+      background: linear-gradient(to right, rgba(11, 27, 61, 0.92), rgba(15, 42, 91, 0.82)), 
+                  url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .text-gradient-jic {
+      background: linear-gradient(135deg, #00d2ff 0%, #00f5d4 50%, #7b2cbf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-brand {
+      background: linear-gradient(135deg, #102a43 0%, #1d4ed8 60%, #00d2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Custom vertical tab button */
+    .vertical-tab {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+     <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-[#0a0f1d]/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 p-0.5 shadow-md group-hover:shadow-cyan-500/25 transition-all duration-300">
+            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+              <!-- Inline SVG replicating the student-reading logo icon -->
+              <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <circle cx="50" cy="22" r="14" fill="url(#logoGradHead)" />
+                <!-- Open Book -->
+                <path d="M50 48 L20 38 L20 76 L50 86 Z" fill="url(#logoGradLeft)" />
+                <path d="M50 48 L80 38 L80 76 L50 86 Z" fill="url(#logoGradRight)" />
+                <!-- Hands / Body Frame -->
+                <path d="M18 54 C12 54 10 66 18 68 C22 69 24 64 22 58 Z" fill="#00f5d4" />
+                <path d="M82 54 C88 54 90 66 82 68 C78 69 76 64 78 58 Z" fill="#00d2ff" />
+                <defs>
+                  <linearGradient id="logoGradHead" x1="36" y1="8" x2="64" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7b2cbf" />
+                    <stop offset="1" stop-color="#00d2ff" />
+                  </linearGradient>
+                  <linearGradient id="logoGradLeft" x1="20" y1="38" x2="50" y2="86" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#00f5d4" />
+                    <stop offset="1" stop-color="#1d4ed8" />
+                  </linearGradient>
+                  <linearGradient id="logoGradRight" x1="50" y1="48" x2="80" y2="76" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1d4ed8" />
+                    <stop offset="1" stop-color="#7b2cbf" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+           <div class="flex flex-col">
+            <div class="text-xl font-extrabold tracking-tight flex items-center gap-1">
+              <span>JIC</span>
+              <span class="text-gradient-jic font-black">Portal</span>
+            </div>
+            <span class="text-[10px] uppercase tracking-widest font-semibold text-slate-400 -mt-1">Student Guide</span>
+          </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <a href="index.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 font-medium transition-all text-sm">Home</a>
+                <a href="Dep.html" class="px-4 py-2 rounded-lg text-white bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 font-semibold text-sm shadow-sm">Departments</a>
+
+
+            </nav>>
+
+
+        </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+
+        <!-- Hero Panoramic Banner Header -->
+        <section class="relative hero-banner py-24 lg:py-32 border-b border-slate-800/80 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0b1329] via-transparent to-transparent"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-8 text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-gradient text-cyan-300 text-xs font-bold uppercase tracking-widest">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                          #
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                            Jubail Industrial College <br>
+                            <span class="gradient-text">Legacy & Transformation</span>
+                        </h1>
+
+                        <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed font-normal">
+                            Developing skilled manpower and engineering leadership since 1978 to support the educational, industrial, and economic expansion of Saudi Arabia.
+                        </p>
+
+                        <!-- Key Highlight Stats Badge Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+                            <div class="glass-card p-4 rounded-xl border border-slate-800">
+                                <div class="text-2xl font-black text-cyan-400">1978</div>
+                                <div class="text-xs text-slate-400 font-medium">Foundation Year</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-slate-800">
+                                <div class="text-2xl font-black text-blue-400">23</div>
+                                <div class="text-xs text-slate-400 font-medium">Specialized Programs</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-slate-800">
+                                <div class="text-2xl font-black text-indigo-400">2022</div>
+                                <div class="text-xs text-slate-400 font-medium">JUC & JIC Strategic Merger</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl border border-slate-800">
+                                <div class="text-2xl font-black text-teal-400">5+</div>
+                                <div class="text-xs text-slate-400 font-medium">Global Accreditations</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Official Crest Badge Card --
+                    <div class="lg:col-span-4 flex justify-center">
+                        <div class="glass-card p-6 rounded-3xl border border-slate-700/50 shadow-2xl relative group hover:border-cyan-500/40 transition-all max-w-xs text-center">
+                            <div class="w-36 h-36 mx-auto mb-4 bg-white p-3 rounded-2xl shadow-inner flex items-center justify-center">
+                                <img src="images.jpg" alt="Jubail Industrial College Seal" class="max-h-full max-w-full object-contain" onerror="this.src='https://placehold.co/200x200/ffffff/1e293b?text=JIC+Emblem'">
+                            </div>
+                            <h3 class="text-xl font-bold text-white tracking-wide">Jubail Industrial College</h3>
+                            <p class="text-xs text-cyan-400 font-semibold mt-1">كلية الجبيل الصناعية</p>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Pioneering technical and engineering higher education in the Eastern Province.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+ <!-- Official Crest Badge Card -->
+        </section>
+
+        <!-- Main Content & Text Presentation Section -->
+        <section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-2">Institutional Profile</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">About Jubail Industrial College</h3>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Historical Timeline & Paragraph Integration -->
+            <div id="timeline" class="relative space-y-8 before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:-ml-px before:w-0.5 before:bg-gradient-to-b before:from-cyan-500 before:via-blue-600 before:to-indigo-800">
+
+                <!-- Timeline Item 1: 1978 - Roots & Foundation -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <!-- Circle Marker Icon -->
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-cyan-400 bg-slate-900 text-cyan-400 shadow-lg shadow-cyan-500/20 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fa-solid fa-seedling text-sm"></i>
+                    </div>
+
+                    <!-- Content Card -->
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 sm:p-8 rounded-2xl glass-card-hover border border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 text-xs font-extrabold text-cyan-300 bg-cyan-950/60 rounded-full border border-cyan-500/30">1978 – 1982</span>
+                            <i class="fa-solid fa-landmark text-slate-500 text-lg"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Skills Training Center & Early Roots</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Jubail Industrial College (JIC) has its roots in <strong class="text-white">1978</strong> when the Royal Commission for Jubail and Yanbu (RCJY) established a skills training center to develop skilled manpower required by the Kingdom. In <strong class="text-white">1982</strong>, the skills training center was upgraded into an institute named the <strong class="text-cyan-300">Royal Commission Human Resources Development Institute in Jubail</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: 1989 - College Status Decree -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-blue-400 bg-slate-900 text-blue-400 shadow-lg shadow-blue-500/20 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fa-solid fa-graduation-cap text-sm"></i>
+                    </div>
+
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 sm:p-8 rounded-2xl glass-card-hover border border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 text-xs font-extrabold text-blue-300 bg-blue-950/60 rounded-full border border-blue-500/30">1989</span>
+                            <i class="fa-solid fa-building-columns text-slate-500 text-lg"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Decree & Transition to Jubail Industrial College</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            The Manpower Council of the Government of Saudi Arabia issued a decree in <strong class="text-white">1989</strong> to transform the institute into a full-fledged engineering and business college, named <strong class="text-blue-300">Jubail Industrial College</strong>. This was established to serve the educational and training needs of the newly created Jubail Industrial City and the local and regional community of the Eastern Province of the Kingdom of Saudi Arabia (KSA).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: 2022 - Strategic Merger -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-indigo-400 bg-slate-900 text-indigo-400 shadow-lg shadow-indigo-500/20 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fa-solid fa-code-merge text-sm"></i>
+                    </div>
+
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 sm:p-8 rounded-2xl glass-card-hover border border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 text-xs font-extrabold text-indigo-300 bg-indigo-950/60 rounded-full border border-indigo-500/30">2022</span>
+                            <i class="fa-solid fa-diagram-project text-slate-500 text-lg"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Merger with JUC & Structural Restructuring</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            In <strong class="text-white">2022</strong>, Jubail University College (JUC), which is an NCAAA accredited institution, merged with Jubail Industrial College. The new structure was part of the Royal Commission’s new strategy in which the education sector was restructured to make use of the synergies between the cities as well as the realization of operational efficiency by creating shared services within the education sector in each city. Thus, Jubail Industrial College underwent a significant structural change, because of the implementation of the new RCJY business strategy, the <strong class="text-indigo-300">General Directorate of Education in Jubail (GDEJ)</strong>, and the merger process between JIC and JUC, where a new organizational structure was issued and implemented.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Aerial Campus Highlight Banner --
+        <section class="py-12 bg-slate-900/60 border-y border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                    <img src="1676204394977.jpg" alt="Jubail Industrial College Aerial Campus Overview" class="w-full h-80 sm:h-96 object-cover" onerror="this.src='https://placehold.co/1200x500/0f172a/06b6d4?text=Jubail+Industrial+College+Campus'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-6 sm:p-10">
+                        <div class="inline-flex items-center gap-2 text-cyan-400 font-semibold text-xs tracking-wider uppercase mb-1">
+                            <i class="fa-solid fa-location-dot"></i> Jubail Industrial City, Kingdom of Saudi Arabia
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">World-Class Campus & Industrial Synergy</h3>
+                        <p class="text-slate-300 text-sm max-w-2xl mt-1">Designed with state-of-the-art laboratories, technical workshops, and modern academic facilities directly aligned with industrial leaders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Portfolio & Accreditation Highlights -->
+        <section id="accreditation" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left Column: Academic Portfolio Details -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-award"></i> Academic Excellence & Industry Focus
+                    </div>
+                    
+                    <h3 class="text-3xl font-black text-white leading-tight">
+                        Comprehensive Academic Programs & Customized Industrial Training
+                    </h3>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Due to the merger, a new organizational structure for education and training departments resulted, that included <strong class="text-cyan-300">23 programs in different specializations</strong>. In addition, it offers several special training programs, professional certification courses, and professional development programs tailored to the specific needs of the industry to help companies build their human capital.
+                    </p>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        All the academic and special programs offered by JIC comply with national and international standards and are indeed accredited by prestigious accreditation bodies.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="glass-card p-4 rounded-xl border border-slate-800 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">23 Specializations</h5>
+                                <p class="text-xs text-slate-400">Engineering & Business</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-slate-800 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">Professional Certs</h5>
+                                <p class="text-xs text-slate-400">Industry-Tailored Programs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Accrediting Bodies Cards -->
+                <div class="lg:col-span-6 space-y-4">
+                    <h4 class="text-xs font-extrabold uppercase tracking-widest text-slate-400 mb-4">Recognized & Accredited By</h4>
+
+                    <!-- NCAAA Card -->
+                    <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center justify-between group hover:border-cyan-500/50 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-cyan-400 font-extrabold text-sm group-hover:scale-105 transition-transform">
+                                NCAAA
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">National Center for Academic Evaluation and Accreditation</h5>
+                                <p class="text-xs text-slate-400">National standard for institutional quality in KSA</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-circle-check text-cyan-400 text-lg"></i>
+                    </div>
+
+                    <!-- ACBSP Card -->
+                    <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center justify-between group hover:border-blue-500/50 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-blue-400 font-extrabold text-sm group-hover:scale-105 transition-transform">
+                                ACBSP
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">Accreditation Council for Business School Programs</h5>
+                                <p class="text-xs text-slate-400">Global business education accreditation</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-circle-check text-blue-400 text-lg"></i>
+                    </div>
+
+                    <!-- CTAB Card -->
+                    <div class="glass-card p-5 rounded-2xl border border-slate-800 flex items-center justify-between group hover:border-indigo-500/50 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-indigo-400 font-extrabold text-sm group-hover:scale-105 transition-transform">
+                                CTAB
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">Canadian Technology Accreditation Board</h5>
+                                <p class="text-xs text-slate-400">International benchmark in technology standards</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-circle-check text-indigo-400 text-lg"></i>
+                    </div>
+
+                    <!-- CILT & IACET Combined Card -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="glass-card p-4 rounded-xl border border-slate-800 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 font-bold text-xs flex items-center justify-center">
+                                CILT
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-xs">CILT Accredited</h5>
+                                <p class="text-[10px] text-slate-400">Logistics & Transport</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-slate-800 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-xs flex items-center justify-center">
+                                IACET
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-xs">IACET Certified</h5>
+                                <p class="text-[10px] text-slate-400">Continuing Education</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#070b16] border-t border-slate-800/80 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+                
+                <div class="flex items-center space-x-3">
+                    <img src="images.jpg" alt="JIC Emblem" class="w-8 h-8 object-contain rounded" onerror="this.src='https://placehold.co/40x40/0f172a/ffffff?text=JIC'">
+                    <div>
+                        <span class="text-white font-bold text-base">Jubail Industrial College</span>
+                        <p class="text-xs text-slate-400">General Directorate of Education in Jubail (GDEJ) - RCJY</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-6 text-sm text-slate-400">
+                    <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="Dep.html" class="hover:text-cyan-400 transition-colors">Departments</a>
+                    <a href="#about" class="hover:text-cyan-400 transition-colors"></a>
+                    <a href="#accreditation" class="hover:text-cyan-400 transition-colors"></a>
+                </div>
+            </div>
+
+            <div class="pt-6 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+                <p>&copy; 2026 JIC Portal.</p>
+                <p>Designed for student portal and community guidance.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
