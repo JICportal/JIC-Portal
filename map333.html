@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIC Portal - Interactive Campus Map</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jic: {
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            cardHover: '#1f2937',
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            indigo: '#6366f1',
+                            accent: '#00f2fe'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1329;
+            color: #f3f4f6;
+        }
+        .text-gradient-jic {
+            background: linear-gradient(135deg, #00d2ff 0%, #00f5d4 50%, #7b2cbf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .map-pin-hotspot {
+            transition: all 0.25s ease-in-out;
+            cursor: pointer;
+        }
+        .map-pin-hotspot:hover {
+            transform: scale(1.15);
+            z-index: 30;
+        }
+        .map-pin-hotspot:hover .pin-badge {
+            background-color: #00f2fe;
+            color: #0b1329;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-[#0a0f1d]/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 p-0.5 shadow-md group-hover:shadow-cyan-500/25 transition-all duration-300">
+                    <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="22" r="14" fill="url(#logoGradHead)" />
+                            <path d="M50 48 L20 38 L20 76 L50 86 Z" fill="url(#logoGradLeft)" />
+                            <path d="M50 48 L80 38 L80 76 L50 86 Z" fill="url(#logoGradRight)" />
+                            <path d="M18 54 C12 54 10 66 18 68 C22 69 24 64 22 58 Z" fill="#00f5d4" />
+                            <path d="M82 54 C88 54 90 66 82 68 C78 69 76 64 78 58 Z" fill="#00d2ff" />
+                            <defs>
+                                <linearGradient id="logoGradHead" x1="36" y1="8" x2="64" y2="36" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#7b2cbf" />
+                                    <stop offset="1" stop-color="#00d2ff" />
+                                </linearGradient>
+                                <linearGradient id="logoGradLeft" x1="20" y1="38" x2="50" y2="86" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#00f5d4" />
+                                    <stop offset="1" stop-color="#1d4ed8" />
+                                </linearGradient>
+                                <linearGradient id="logoGradRight" x1="50" y1="48" x2="80" y2="76" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#1d4ed8" />
+                                    <stop offset="1" stop-color="#7b2cbf" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-xl font-extrabold tracking-tight flex items-center gap-1">
+                        <span>JIC</span>
+                        <span class="text-gradient-jic font-black">Portal</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest font-semibold text-slate-400 -mt-1">Student Guide</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <a href="index.html" class="px-4 py-2 rounded-lg text-white bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 font-semibold text-sm shadow-sm">Home</a>
+                                <a href="Dep.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 font-medium transition-all text-sm">Departments</a>
+                                  <a href="history.html" class="px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 font-medium transition-all text-sm">History</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN INTERACTIVE MAP SECTION -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
+
+        <!-- Title & Subtitle Header -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
+            <div>
+                <h1 class="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                    <i class="fa-solid fa-map-location-dot text-cyan-400"></i>
+                    Interactive Campus Navigator
+                </h1>
+                <p class="text-slate-400 text-sm mt-1">Hover over or click any zone/building on the map to view detailed academic & facility information.</p>
+            </div>
+            
+            <!-- Quick Filter Pills -->
+            <div class="flex items-center gap-2 flex-wrap">
+                <button onclick="filterCategory('all')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/30 transition">All Buildings</button>
+                <button onclick="filterCategory('academic')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-500/50 transition">Academic</button>
+                <button onclick="filterCategory('facility')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-500/50 transition">Facilities</button>
+                <button onclick="filterCategory('housing')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-500/50 transition">Student Housing</button>
+            </div>
+        </div>
+
+        <!-- Content Layout: Map Container + Side Detail Drawer -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+            <!-- Interactive Map Wrapper (8 Cols) -->
+            <div class="lg:col-span-8 bg-slate-900/90 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl relative">
+                
+                <!-- Instruction Header Bar -->
+                <div class="px-4 py-2.5 bg-slate-800/80 border-b border-slate-700/60 flex items-center justify-between text-xs text-slate-300">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-hand-pointer text-cyan-400 animate-pulse"></i> 
+                        Hover over pins or click for expanded building details
+                    </span>
+                    <span class="text-slate-400 font-mono text-[11px]"><i class="fa-solid fa-building text-slate-400 mr-1"></i> JIC Campus Map</span>
+                </div>
+
+                <!-- Map Frame Container -->
+                <div class="relative w-full overflow-hidden bg-slate-950 min-h-[480px] sm:min-h-[560px] flex items-center justify-center">
+                    
+                    <!-- Base Campus Image -->
+                    <img id="campusMapImg" src="Gemini_Generated_Image_wznmylwznmylwznm.jpg" alt="Jubail Industrial College Map" class="w-full h-auto object-contain block transition-opacity duration-300">
+
+                    <!-- Interactive Building Hotspot Overlays -->
+                    <!-- Hotspot 1: Admin & Main Building -->
+                    <div class="map-pin-hotspot absolute" style="top: 76%; left: 25%;" onclick="showBuildingDetails('admin')" onmouseenter="previewBuilding('admin')">
+                        <div class="pin-badge px-2.5 py-0.1 rounded-full bg-slate-900/90 text-cyan-400 border border-cyan-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-landmark text-[11px]"></i> Administration
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 2: English Language Center (ELC) -->
+                    <div class="map-pin-hotspot absolute" style="top: 22%; left: 28%;" onclick="showBuildingDetails('elc')" onmouseenter="previewBuilding('elc')">
+                        <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-cyan-400 border border-cyan-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-book-open text-[11px]"></i> ENG
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 3: Mechanical Engineering (MMET - Wings 2,3,4) -->
+                    <div class="map-pin-hotspot absolute" style="top: 50%; left: 19%;" onclick="showBuildingDetails('mmet')" onmouseenter="previewBuilding('mmet')">
+                        <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-amber-400 border border-amber-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-gears text-[11px]"></i> MMET
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 4: Chemical Engineering (CHET) -->
+                    <div class="map-pin-hotspot absolute" style="top: 15%; left: 36%;" onclick="showBuildingDetails('chet')" onmouseenter="previewBuilding('chet')">
+                        <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-rose-400 border border-rose-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-flask text-[11px]"></i> CHE
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 5: Electrical Engineering (ELET) -->
+                    <div class="map-pin-hotspot absolute" style="top: 22%; left: 42%;" onclick="showBuildingDetails('elet')" onmouseenter="previewBuilding('elet')">
+                        <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-purple-400 border border-purple-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt text-[11px]"></i> ELET Dept
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 6: Management & IT (MIT) -->
+                    <div class="map-pin-hotspot absolute" style="top: 33%; left: 41%;" onclick="showBuildingDetails('mit')" onmouseenter="previewBuilding('mit')">
+                        <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-emerald-400 border border-emerald-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-laptop-code text-[11px]"></i> MIT 
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 7: Multi-Purpose Hall & Gym -->
+                    <div class="map-pin-hotspot absolute" style="top: 31%; left: 11%;" onclick="showBuildingDetails('gym')" onmouseenter="previewBuilding('gym')">
+                        <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-blue-400 border border-blue-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-dumbbell text-[11px]"></i> Gym / MPH
+                        </div>
+                    </div>
+
+                    <!-- Hotspot 8: Student Accommodation / Housing -->
+                    <div class="map-pin-hotspot absolute" style="top: 53%; left: 44%;" onclick="showBuildingDetails('dorms')" onmouseenter="previewBuilding('dorms')">
+                        <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-yellow-400 border border-yellow-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-hotel text-[11px]"></i> Dorms / Housing
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Panel: Interactive Building Information Display (4 Cols) -->
+            <div class="lg:col-span-4 flex flex-col gap-4">
+                
+                <!-- Quick Search Input -->
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="searchInput" onkeyup="searchLocation()" placeholder="Search building or department..." class="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition">
+                </div>
+
+                <!-- Dynamic Building Detail Card -->
+                <div id="detailCard" class="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 flex flex-col justify-between shadow-xl min-h-[440px] transition-all duration-300">
+                    
+                    <div>
+                        <!-- Header / Category Badge -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span id="cardCategory" class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                                Academic Department
+                            </span>
+                            <span id="cardWing" class="text-xs font-mono text-slate-400">Main Quad</span>
+                        </div>
+
+                        <!-- Building Name & Icon -->
+                        <div class="flex items-start gap-3 mb-4">
+                            <div id="cardIconBg" class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl shrink-0 shadow-md">
+                                <i id="cardIcon" class="fa-solid fa-landmark"></i>
+                            </div>
+                            <div>
+                                <h2 id="cardTitle" class="text-xl font-bold text-white leading-tight">Admin & Media Resources</h2>
+                                <p id="cardSubtitle" class="text-xs text-slate-400 mt-0.5">مبنى الإدارة + المسرح + مركز الكتب والطباعة</p>
+                            </div>
+                        </div>
+
+                        <hr class="border-slate-800 my-4">
+
+                        <!-- Description & Key Information -->
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Overview & Services</h3>
+                                <p id="cardDescription" class="text-sm text-slate-300 leading-relaxed">
+                                    Houses the main college leadership, Academic and Training Affairs (Wing 1), General Studies Department (Wing 6), Central Auditorium, and Media Resources Center.
+                                </p>
+                            </div>
+
+                            <!-- Facilities List -->
+                            <div>
+                                <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Facilities</h3>
+                                <ul id="cardFacilities" class="space-y-1.5 text-xs text-slate-300">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Main College Auditorium</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Deanship of Academic Affairs</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Book Distribution & Printing Center</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Action Bar -->
+                    <div class="pt-6 border-t border-slate-800/80 mt-6 flex items-center justify-between">
+                        <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-cyan-400 mr-1"></i> Zone A-2</span>
+                        <button onclick="getDirections()" class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-xs hover:shadow-lg hover:shadow-cyan-500/20 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-route"></i> Locate Section
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-slate-800/80 bg-[#0a0f1d] py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400">
+            <p>© 2026 Jubail Industrial College - Digital Campus Portal</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE MAP LOGIC SCRIPT -->
+    <script>
+        // Campus Building Data Dictionary based on JIC Map details
+        const buildingData = {
+            admin: {
+                category: "Administration & Leadership",
+                wing: "Center Sector",
+                icon: "fa-landmark",
+                iconGrad: "from-cyan-500 to-blue-600",
+                badgeBg: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+                title: "Admin & Media Resources",
+                subtitle: "مبنى الإدارة + المسرح + مركز الكتب",
+                desc: "Houses the college administration, central auditorium, Academic & Training Affairs (Wing 1), and General Studies Department (Wing 6).",
+                facilities: [
+                    "Academic and Training Affairs (Wing 1)",
+                    "General Studies Department (Wing 6)",
+                    "Auditorium & Media Printing Center"
+                ],
+                zone: "Central Sector"
+            },
+            elc: {
+                category: "Academic Center",
+                wing: "North Quad",
+                icon: "fa-book-open",
+                iconGrad: "from-blue-500 to-indigo-600",
+                badgeBg: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+                title: "English Language Center (ELC)",
+                subtitle: "مركز اللغة الإنجليزية",
+                desc: "Dedicated language instruction facility equipping preparatory year and technical students with professional English competency.",
+                facilities: [
+                    "Language Labs & Smart Classrooms",
+                    "Preparatory English Testing Center",
+                    "Faculty Offices & Self-Access Learning"
+                ],
+                zone: "North Quad"
+            },
+            mmet: {
+                category: "Engineering Department",
+                wing: "Wings 2, 3 & 4",
+                icon: "fa-gears",
+                iconGrad: "from-amber-500 to-orange-600",
+                badgeBg: "bg-amber-500/20 text-amber-300 border-amber-500/30",
+                title: "Mechanical Engineering (MMET)",
+                subtitle: "قسم تقنية الهندسة الميكانيكية",
+                desc: "Specialized engineering complex with hands-on mechanical workshops, CAD design suites, thermal dynamic labs, and manufacturing units.",
+                facilities: [
+                    "Manufacturing & CNC Workshops",
+                    "Thermodynamics & Fluid Power Labs",
+                    "CAD/CAM Simulation Centers"
+                ],
+                zone: "West Wing"
+            },
+            chet: {
+                category: "Engineering Department",
+                wing: "North-East Sector",
+                icon: "fa-flask",
+                iconGrad: "from-rose-500 to-pink-600",
+                badgeBg: "bg-rose-500/20 text-rose-300 border-rose-500/30",
+                title: "Chemical Engineering (CHET)",
+                subtitle: "قسم تقنية الهندسة الكيميائية",
+                desc: "State-of-the-art chemical processing, polymer technology, and analytical chemistry laboratories for process engineering.",
+                facilities: [
+                    "Chemical Process Control Units",
+                    "Polymer & Analytical Testing Labs",
+                    "Industrial Safety Testing Bays"
+                ],
+                zone: "North-East Zone"
+            },
+            elet: {
+                category: "Engineering Department",
+                wing: "Central-East Sector",
+                icon: "fa-bolt",
+                iconGrad: "from-purple-500 to-indigo-600",
+                badgeBg: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+                title: "Electrical Engineering (ELET)",
+                subtitle: "قسم تقنية الهندسة الكهربائية والإلكترونية",
+                desc: "Focuses on power engineering, microelectronics, instrumentation, telecommunications, and industrial automation technology.",
+                facilities: [
+                    "High-Voltage Power Labs",
+                    "PLC & Automation Simulation Suite",
+                    "Electronics & Microcontroller Testing"
+                ],
+                zone: "East Quad"
+            },
+            mit: {
+                category: "Academic & Tech Department",
+                wing: "North-East Complex",
+                icon: "fa-laptop-code",
+                iconGrad: "from-emerald-500 to-teal-600",
+                badgeBg: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+                title: "Management & IT (MIT)",
+                subtitle: "قسم الإدارة وتقنية المعلومات",
+                desc: "Modern computing hubs, networking laboratories, enterprise software suites, and business management lecture halls.",
+                facilities: [
+                    "Cisco Networking & Server Labs",
+                    "Software Engineering Workstations",
+                    "Business & Accounting Simulation Classrooms"
+                ],
+                zone: "North East Sector"
+            },
+            gym: {
+                category: "Student Facilities",
+                wing: "West Recreation Sector",
+                icon: "fa-dumbbell",
+                iconGrad: "from-cyan-500 to-teal-500",
+                badgeBg: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+                title: "Multi-Purpose Hall & Gym",
+                subtitle: "القاعة متعددة الأغراض + الصالة الرياضية",
+                desc: "Comprehensive athletic facility featuring indoor sports courts, fitness gymnasium, swimming pool, and student recreation areas.",
+                facilities: [
+                    "Full Fitness Gym & Weights Area",
+                    "Indoor Basketball & Volleyball Courts",
+                    "Student Locker Rooms & Activity Center"
+                ],
+                zone: "West Complex"
+            },
+            dorms: {
+                category: "Student Housing",
+                wing: "East Residential Area",
+                icon: "fa-hotel",
+                iconGrad: "from-yellow-500 to-amber-600",
+                badgeBg: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
+                title: "Student Accommodation / Dorms",
+                subtitle: "سكن الطلاب (القديم والجديد)",
+                desc: "Residential compounds providing housing, dining halls, study rooms, and recreational lounges for enrolled campus students.",
+                facilities: [
+                    "New & Classic Housing Blocks",
+                    "Main Student Dining Hall & Restaurant",
+                    "On-Campus Clinic & Commercial Shops"
+                ],
+                zone: "East Residential Zone"
+            }
+        };
+
+        // Function to update detail card when clicking or hovering
+        function showBuildingDetails(key) {
+            const data = buildingData[key];
+            if (!data) return;
+
+            document.getElementById('cardCategory').innerText = data.category;
+            document.getElementById('cardCategory').className = `px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider border ${data.badgeBg}`;
+            document.getElementById('cardWing').innerText = data.wing;
+            
+            const iconBg = document.getElementById('cardIconBg');
+            iconBg.className = `w-12 h-12 rounded-xl bg-gradient-to-tr ${data.iconGrad} flex items-center justify-center text-white text-xl shrink-0 shadow-md`;
+            
+            document.getElementById('cardIcon').className = `fa-solid ${data.icon}`;
+            document.getElementById('cardTitle').innerText = data.title;
+            document.getElementById('cardSubtitle').innerText = data.subtitle;
+            document.getElementById('cardDescription').innerText = data.desc;
+
+            // Update Facilities List
+            const listContainer = document.getElementById('cardFacilities');
+            listContainer.innerHTML = '';
+            data.facilities.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center gap-2';
+                li.innerHTML = `<i class="fa-solid fa-circle-check text-cyan-400"></i> ${item}`;
+                listContainer.appendChild(li);
+            });
+        }
+
+        // Preview function for hover
+        function previewBuilding(key) {
+            showBuildingDetails(key);
+        }
+
+        // Search Filter Logic
+        function searchLocation() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            for (let key in buildingData) {
+                const b = buildingData[key];
+                if (b.title.toLowerCase().includes(query) || b.subtitle.toLowerCase().includes(query) || b.category.toLowerCase().includes(query)) {
+                    showBuildingDetails(key);
+                    break;
+                }
+            }
+        }
+
+        // Simple Directions Action
+        function getDirections() {
+            const currentTitle = document.getElementById('cardTitle').innerText;
+            alert(`Highlighting route and details for: ${currentTitle}`);
+        }
+
+        // Filter Category Buttons
+        function filterCategory(cat) {
+            const pins = document.querySelectorAll('.map-pin-hotspot');
+            pins.forEach(pin => {
+                pin.style.opacity = '1';
+            });
+            if (cat === 'academic') showBuildingDetails('mit');
+            else if (cat === 'facility') showBuildingDetails('gym');
+            else if (cat === 'housing') showBuildingDetails('dorms');
+            else showBuildingDetails('admin');
+        }
+    </script>
+</body>
+</html>
