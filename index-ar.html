@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة كلية الجبيل الصناعية — دليل الطالب (JIC Portal)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jic: {
+              navy: '#0b1b3d',
+              dark: '#070f26',
+              blue: '#1d4ed8',
+              sky: '#00d2ff',
+              teal: '#00f5d4',
+              purple: '#7b2cbf',
+              accent: '#059669',
+              lightBg: '#f4f7fc',
+              card: '#111827',
+              cardHover: '#1f2937',
+              cyan: '#06b6d4',
+              indigo: '#6366f1'
+            }
+          },
+          fontFamily: {
+            sans: ['Cairo', 'Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts Cairo & Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+    img, svg, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    .bg-gradient-jic {
+      background: linear-gradient(135deg, #0b1b3d 0%, #1e3a8a 50%, #00d2ff 100%);
+    }
+    .bg-gradient-hero {
+      background: linear-gradient(to left, rgba(11, 27, 61, 0.92), rgba(15, 42, 91, 0.82)), 
+                  url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+    .text-gradient-jic {
+      background: linear-gradient(135deg, #00d2ff 0%, #00f5d4 50%, #7b2cbf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-brand {
+      background: linear-gradient(135deg, #102a43 0%, #1d4ed8 60%, #00d2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .map-pin-hotspot {
+      transition: all 0.25s ease-in-out;
+      cursor: pointer;
+    }
+    .map-pin-hotspot:hover {
+      transform: scale(1.15);
+      z-index: 30;
+    }
+    .map-pin-hotspot:hover .pin-badge {
+      background-color: #00f2fe;
+      color: #0b1329;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.8);
+    }
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    /* Custom vertical tab button */
+    .vertical-tab {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+
+  <!-- HEADER NAVIGATION -->
+  <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-slate-200/80">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- LOGO -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 p-0.5 shadow-md group-hover:shadow-cyan-500/25 transition-all duration-300">
+            <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+              <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="22" r="14" fill="url(#logoGradHead)" />
+                <path d="M50 48 L20 38 L20 76 L50 86 Z" fill="url(#logoGradLeft)" />
+                <path d="M50 48 L80 38 L80 76 L50 86 Z" fill="url(#logoGradRight)" />
+                <path d="M18 54 C12 54 10 66 18 68 C22 69 24 64 22 58 Z" fill="#00f5d4" />
+                <path d="M82 54 C88 54 90 66 82 68 C78 69 76 64 78 58 Z" fill="#00d2ff" />
+                <defs>
+                  <linearGradient id="logoGradHead" x1="36" y1="8" x2="64" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#7b2cbf" />
+                    <stop offset="1" stop-color="#00d2ff" />
+                  </linearGradient>
+                  <linearGradient id="logoGradLeft" x1="20" y1="38" x2="50" y2="86" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#00f5d4" />
+                    <stop offset="1" stop-color="#1d4ed8" />
+                  </linearGradient>
+                  <linearGradient id="logoGradRight" x1="50" y1="48" x2="80" y2="76" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1d4ed8" />
+                    <stop offset="1" stop-color="#7b2cbf" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="text-xl font-extrabold tracking-tight flex items-center gap-1" dir="ltr">
+              <span class="text-slate-900">JIC</span>
+              <span class="text-gradient-jic font-black">Portal</span>
+            </div>
+            <span class="text-[11px] font-semibold text-slate-400 -mt-1">دليل الطالب</span>
+          </div>
+        </a>
+
+        <!-- DESKTOP NAVIGATION MENU -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+          <a href="#home" class="px-3 py-2 text-sm font-semibold text-emerald-700 bg-emerald-50 rounded-lg border border-emerald-200/60">الرئيسية</a>
+          <a href="Dep.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors">الأقسام الأكاديمية</a>
+          <a href="history.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors">تاريخ الكلية</a>
+          <a href="student-affairs-v2.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors">شؤون الطلاب</a>
+        </nav>
+
+        <!-- LEFT UTILITY AREA (Visual End in RTL) -->
+        <div class="flex items-center gap-3">
+          <!-- Royal Commission Logo -->
+          <div class="flex items-center bg-slate-50 border border-slate-200/80 rounded-lg px-6 py-3">
+            <img src="rcjy.jpg" alt="الهيئة الملكية للجبيل وينبع" class="h-8 w-auto object-contain animate-fade">
+          </div>
+
+          <!-- Language Switcher Button -->
+          <a href="index.html" aria-label="النسخة الإنجليزية" class="inline-flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-600 hover:text-white border-2 border-emerald-500 rounded-lg shadow-sm transition-all duration-200">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span>English</span>
+          </a>
+          
+          <!-- MOBILE MENU BUTTON -->
+          <button onclick="toggleMobileMenu()" aria-label="القائمة" class="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MOBILE NAVIGATION PANEL -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2">
+      <a href="#home" class="block px-3 py-2 rounded-md font-semibold text-emerald-700 bg-emerald-50">الرئيسية</a>
+      <a href="Dep.html" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">الأقسام الأكاديمية</a>
+      <a href="history.html" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">تاريخ الكلية</a>
+      <a href="student-affairs-v2.html" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">شؤون الطلاب</a>
+      <a href="#guides" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">أقسام الإرشاد الطلابي</a>
+      <a href="#about" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">فريق المشروع</a>
+    </div>
+  </header>
+
+  <!-- MAIN HERO BANNER -->
+  <section id="home" class="bg-gradient-hero text-white relative overflow-hidden py-14 lg:py-20 shadow-inner">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Main Title Content -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-semibold backdrop-blur-md">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>الهيئة الملكية للجبيل وينبع</span>
+          </div>
+          
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+            كلية الجبيل الصناعية <br/>
+            <span class="text-gradient-jic">بوابة المعرفة الطلابية</span>
+          </h1>
+
+          <p class="text-slate-200 text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
+            كل ما يحتاج طالب كلية الجبيل الصناعية معرفته في مكان واحد. تُعد بوابة JIC دليلاً إلكترونياً مبسطاً يساعد الطلاب المستجدين والراغبين في الالتحاق بالكلية على الوصول إلى الموارد العملية والمعلومات الأساسية للتعرف على كليتنا العريقة بكل سهولة.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <button onclick="triggerArshadMessage()" class="px-5 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-600/50 text-sm font-semibold backdrop-blur-md transition-all duration-200 flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i>
+              <span>مراجعة المشروع (للأستاذ أرشد)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Featured Highlights Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-gradient-to-b from-slate-900/90 to-slate-950/95 backdrop-blur-xl border border-slate-700/60 rounded-2xl p-6 sm:p-7 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-5">
+              <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+                توفر لك هذه البوابة:
+              </h3>
+              <span class="text-[11px] font-bold bg-cyan-950 text-cyan-400 px-2.5 py-1 rounded border border-cyan-800">5 وحدات</span>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-slate-300">
+              <li class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-800/50 transition-colors">
+                <div class="p-1 rounded bg-emerald-500/20 text-emerald-400 mt-0.5">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <span>نظرة شاملة على <strong>إرث كلية الجبيل الصناعية وتاريخها العريق</strong>.</span>
+              </li>
+              <li class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-800/50 transition-colors">
+                <div class="p-1 rounded bg-emerald-500/20 text-emerald-400 mt-0.5">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <span>دليل متكامل حول <strong>أقسام الكلية ومرافقها المختلفة</strong>.</span>
+              </li>
+              <li class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-800/50 transition-colors">
+                <div class="p-1 rounded bg-emerald-500/20 text-emerald-400 mt-0.5">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <span>معرفة أساسية بـ <strong>الهيكل الإداري ومسؤولي الكلية</strong>.</span>
+              </li>
+              <li class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-800/50 transition-colors">
+                <div class="p-1 rounded bg-emerald-500/20 text-emerald-400 mt-0.5">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <span>أهم <strong>مصادر المعرفة الأكاديمية والكتب الدراسية والمكتبة الإلكترونية</strong>.</span>
+              </li>
+              <li class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-800/50 transition-colors">
+                <div class="p-1 rounded bg-emerald-500/20 text-emerald-400 mt-0.5">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <span>دليل شامل لـ <strong>المواقع والمنصات الرسمية المعتمدة في الكلية</strong>.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY SIDEBAR CALENDAR TAB -->
+  <div class="fixed left-0 top-1/2 -translate-y-1/2 z-30 flex items-center">
+    <button onclick="toggleModal('calendarDrawer')" class="bg-slate-900 text-white hover:bg-blue-700 px-2.5 py-4 rounded-r-xl shadow-xl flex items-center gap-2 text-xs font-bold tracking-wider transition-all duration-300 border-r border-t border-b border-slate-700 group">
+      <i data-lucide="calendar" class="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+      <span class="vertical-tab">التقويم الأكاديمي</span>
+    </button>
+  </div>
+
+  <!-- MAIN BODY SECTION -->
+  <main class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-grow space-y-10">
+    
+    <!-- Section Title & Filter Bar -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
+          <i class="fa-solid fa-map-location-dot text-blue-600"></i>
+          مستكشف الحرم الجامعي التفاعلي
+        </h2>
+        <p class="text-slate-500 text-sm mt-1">مرّر المؤشر أو انقر على أي مبنى أو منطقة في الخريطة لعرض التفاصيل الأكاديمية والخدمات المتوفرة.</p>
+      </div>
+      
+      <!-- Quick Filter Pills -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <button onclick="filterCategory('all')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 text-cyan-800 border border-cyan-500/40 hover:bg-cyan-500/25 transition">جميع المباني</button>
+        <button onclick="filterCategory('academic')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-200 border border-slate-700 hover:border-cyan-500 transition">الأقسام الأكاديمية</button>
+        <button onclick="filterCategory('facility')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-200 border border-slate-700 hover:border-cyan-500 transition">المرافق والخدمات</button>
+        <button onclick="filterCategory('housing')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-200 border border-slate-700 hover:border-cyan-500 transition">سكن الطلاب</button>
+      </div>
+    </div>
+
+    <!-- EXPANDED GRID LAYOUT (Navigator [3 cols] + Wider Map [6 cols] + Balanced Dynamic Card [3 cols]) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      
+      <!-- COLUMN 1: SIDEBAR NAVIGATION MENU (3 Cols, Full Height) -->
+      <aside class="lg:col-span-3 flex flex-col">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden flex-1 flex flex-col justify-between h-full">
+          <div>
+            <div class="bg-gradient-to-l from-slate-900 to-blue-950 p-4 text-white flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h2 class="font-bold text-sm tracking-wide">التنقل في البوابة</h2>
+                <p class="text-[11px] text-slate-300">قائمة الوصول السريع</p>
+              </div>
+            </div>
+
+            <nav class="p-3 space-y-1.5 text-sm font-medium text-slate-700">
+              <a href="history.html" class="flex items-center justify-between p-3 rounded-xl bg-emerald-50 text-emerald-800 font-semibold border-r-4 border-emerald-500">
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="home" class="w-4 h-4 text-emerald-600"></i>
+                  تاريخ الكلية
+                </span>
+                <i data-lucide="chevron-left" class="w-4 h-4 text-emerald-500"></i>
+              </a>
+
+              <a href="Dep.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 hover:text-blue-600 transition-colors group">
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="building-2" class="w-4 h-4 text-slate-400 group-hover:text-blue-600"></i>
+                  أقسام الكلية
+                </span>
+                <i data-lucide="chevron-left" class="w-4 h-4 text-slate-400 group-hover:text-blue-600"></i>
+              </a>
+
+              <a href="student-affairs-v2.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 hover:text-blue-600 transition-colors group">
+                <span class="flex items-center gap-2.5">
+                  <i data-lucide="graduation-cap" class="w-4 h-4 text-slate-400 group-hover:text-blue-600"></i>
+                  عن شؤون الطلاب
+                </span>
+                <i data-lucide="chevron-left" class="w-4 h-4 text-slate-400 group-hover:text-blue-600"></i>
+              </a>
+            </nav>
+          </div>
+
+          <!-- Quick Help Widget in Sidebar -->
+          <div class="m-3 p-4 bg-slate-900 rounded-xl text-white text-xs space-y-2">
+            <div class="flex items-center gap-2 text-cyan-400 font-semibold">
+              <i data-lucide="help-circle" class="w-4 h-4"></i>
+              <span>هل تحتاج إلى مساعدة سريعة؟</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed">تواصل مباشرة مع فريق تطوير مشروع التخرج.</p>
+            <button onclick="toggleModal('teamModal')" class="w-full py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg text-center mt-2 hover:opacity-90 transition-opacity">
+              عرض فريق المشروع
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- COLUMN 2: HORIZONTALLY EXPANDED INTERACTIVE MAP WRAPPER (6 Cols) -->
+      <div id="media" class="lg:col-span-6 bg-slate-900/95 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl flex flex-col h-full min-h-[500px]">
+        <!-- Instruction Header Bar -->
+        <div class="px-4 py-3 bg-slate-800/90 border-b border-slate-700/60 flex items-center justify-between text-xs text-slate-300 shrink-0">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-hand-pointer text-cyan-400 animate-pulse"></i> 
+            مرّر المؤشر أو انقر على العلامات لعرض التفاصيل
+          </span>
+          <span class="text-slate-400 text-[11px]"><i class="fa-solid fa-building text-slate-400 ml-1"></i> خريطة حرم الكلية</span>
+        </div>
+
+        <!-- Map Frame Container -->
+        <div class="relative w-full flex-1 bg-slate-950 flex items-center justify-center overflow-hidden">
+          <!-- Base Campus Image -->
+          <img id="campusMapImg" src="JIC Portal Map.jpg" alt="خريطة كلية الجبيل الصناعية" class="w-full h-full object-cover block transition-opacity duration-300">
+
+          <!-- Hotspot 1: Admin & Main Building -->
+          <div class="map-pin-hotspot absolute" style="top: 76%; left: 25%;" onclick="showBuildingDetails('admin')" onmouseenter="previewBuilding('admin')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-cyan-400 border border-cyan-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-landmark text-[11px]"></i> الإدارة
+            </div>
+          </div>
+
+          <!-- Hotspot 2: English Language Center (ELC) -->
+          <div class="map-pin-hotspot absolute" style="top: 22%; left: 28%;" onclick="showBuildingDetails('elc')" onmouseenter="previewBuilding('elc')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-cyan-400 border border-cyan-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-book-open text-[11px]"></i> اللغة الإنجليزية
+            </div>
+          </div>
+
+          <!-- Hotspot 3: Mechanical Engineering (MMET - Wings 2,3,4) -->
+          <div class="map-pin-hotspot absolute" style="top: 50%; left: 19%;" onclick="showBuildingDetails('mmet')" onmouseenter="previewBuilding('mmet')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-amber-400 border border-amber-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-gears text-[11px]"></i> الميكانيكا
+            </div>
+          </div>
+
+          <!-- Hotspot 4: Chemical Engineering (CHET) -->
+          <div class="map-pin-hotspot absolute" style="top: 15%; left: 36%;" onclick="showBuildingDetails('chet')" onmouseenter="previewBuilding('chet')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-rose-400 border border-rose-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-flask text-[11px]"></i> الكيمياء
+            </div>
+          </div>
+
+          <!-- Hotspot 5: Electrical Engineering (ELET) -->
+          <div class="map-pin-hotspot absolute" style="top: 22%; left: 42%;" onclick="showBuildingDetails('elet')" onmouseenter="previewBuilding('elet')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-purple-400 border border-purple-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-bolt text-[11px]"></i> الكهرباء
+            </div>
+          </div>
+
+          <!-- Hotspot 6: Management & IT (MIT) -->
+          <div class="map-pin-hotspot absolute" style="top: 33%; left: 41%;" onclick="showBuildingDetails('mit')" onmouseenter="previewBuilding('mit')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-emerald-400 border border-emerald-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-laptop-code text-[11px]"></i> الإدارة وتقنية المعلومات
+            </div>
+          </div>
+
+          <!-- Hotspot 7: Multi-Purpose Hall & Gym -->
+          <div class="map-pin-hotspot absolute" style="top: 31%; left: 11%;" onclick="showBuildingDetails('gym')" onmouseenter="previewBuilding('gym')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-blue-400 border border-blue-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-dumbbell text-[11px]"></i> الصالة الرياضية
+            </div>
+          </div>
+
+          <!-- Hotspot 8: Student Accommodation / Housing -->
+          <div class="map-pin-hotspot absolute" style="top: 53%; left: 44%;" onclick="showBuildingDetails('dorms')" onmouseenter="previewBuilding('dorms')">
+            <div class="pin-badge px-2.5 py-1 rounded-full bg-slate-900/90 text-yellow-400 border border-yellow-500/60 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <i class="fa-solid fa-hotel text-[11px]"></i> سكن الطلاب
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMN 3: BALANCED DETAIL CARD WITH PHOTO SCROLLER (3 Cols, Full Height) -->
+      <div class="lg:col-span-3 flex flex-col gap-3 h-full justify-between">
+        <!-- Quick Search Input -->
+        <div class="relative shrink-0">
+          <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+          <input type="text" id="mapSearchInput" onkeyup="searchLocation()" placeholder="ابحث عن مبنى أو قسم..." class="w-full pr-9 pl-3 py-2 bg-slate-900 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition">
+        </div>
+
+        <!-- Dynamic Building Detail Card -->
+        <div id="detailCard" class="bg-slate-900/95 rounded-2xl border border-slate-800 p-4 flex-1 flex flex-col justify-between shadow-xl transition-all duration-300 h-full">
+          <div>
+            <!-- Header / Category Badge -->
+            <div class="flex items-center justify-between mb-3">
+              <span id="cardCategory" class="px-2.5 py-1 rounded-md text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                الإدارة والقيادة
+              </span>
+              <span id="cardWing" class="text-[10px] text-slate-400">القطاع الأوسط</span>
+            </div>
+
+            <!-- Building Name & Icon -->
+            <div class="flex items-start gap-3 mb-3">
+              <div id="cardIconBg" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-base shrink-0 shadow-md">
+                <i id="cardIcon" class="fa-solid fa-landmark"></i>
+              </div>
+              <div>
+                <h2 id="cardTitle" class="text-base font-bold text-white leading-tight">مبنى الإدارة والمصادر الإعلامية</h2>
+                <p id="cardSubtitle" class="text-[11px] text-slate-400 mt-0.5">مبنى الإدارة + المسرح + مركز الكتب والطباعة</p>
+              </div>
+            </div>
+
+            <!-- PHOTO SCROLLING GALLERY SPACE -->
+            <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-800 h-36 mb-3 group">
+              <img id="cardPhoto" src="admin-1.jpg" alt="معاينة صور المبنى" class="w-full h-full object-cover transition-all duration-300">
+              
+              <!-- Next Photo Button (Right side in RTL) -->
+              <button type="button" onclick="prevBuildingPhoto()" aria-label="الصورة السابقة" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-900/80 hover:bg-cyan-500 text-white hover:text-slate-950 flex items-center justify-center transition shadow-md">
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </button>
+
+              <!-- Previous Photo Button (Left side in RTL) -->
+              <button type="button" onclick="nextBuildingPhoto()" aria-label="الصورة التالية" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-900/80 hover:bg-cyan-500 text-white hover:text-slate-950 flex items-center justify-center transition shadow-md">
+                <i class="fa-solid fa-chevron-left text-[10px]"></i>
+              </button>
+
+              <!-- Photo Counter & Dots Bar -->
+              <div class="absolute bottom-2 inset-x-2 flex items-center justify-between bg-slate-950/75 backdrop-blur-sm px-2 py-0.5 rounded-lg border border-slate-800/80">
+                <span id="photoCounter" class="text-[10px] text-slate-300">صورة 1 / 3</span>
+                <div id="photoDots" class="flex items-center gap-1"></div>
+              </div>
+            </div>
+
+            <!-- Description & Key Information -->
+            <div class="space-y-2.5">
+              <div>
+                <h3 class="text-[10px] font-semibold text-slate-400 mb-0.5">نظرة عامة والخدمات</h3>
+                <p id="cardDescription" class="text-xs text-slate-300 leading-relaxed max-h-[84px] overflow-y-auto">
+                  يضم إدارة الكلية الرئيسية، والشؤون الأكاديمية والتدريب (جناح 1)، وقسم الدراسات العامة (جناح 6)، والمسرح الرئيسي، ومركز المصادر الإعلامية.
+                </p>
+              </div>
+
+              <!-- Facilities List -->
+              <div>
+                <h3 class="text-[10px] font-semibold text-slate-400 mb-1">أبرز المرافق</h3>
+                <ul id="cardFacilities" class="space-y-0.5 text-[11px] text-slate-300">
+                  <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i> المسرح الرئيسي للكلية</li>
+                  <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i> وكالة الشؤون الأكاديمية</li>
+                  <li class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i> مركز توزيع الكتب والطباعة</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Bar -->
+          <div class="pt-3 border-t border-slate-800/80 mt-3 flex items-center justify-between shrink-0">
+            <span id="cardZone" class="text-[10px] text-slate-400"><i class="fa-solid fa-location-dot text-cyan-400 ml-1"></i> القطاع الأوسط</span>
+            <button onclick="getDirections()" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-[10px] hover:shadow-lg hover:shadow-cyan-500/20 transition flex items-center gap-1">
+              <i class="fa-solid fa-route"></i> تحديد الموقع
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GUIDANCE CARDS SECTION -->
+    <div id="guides" class="space-y-6 pt-4">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900">أقسام الإرشاد الطلابي</h3>
+          <p class="text-sm text-slate-500 mt-1">ينقسم الدليل إلى أقسام أساسية وقواعد معرفية رئيسية تخدم الطالب الجامعي.</p>
+        </div>
+        <span class="text-xs text-slate-400">المصدر: السجلات الرسمية لكلية الجبيل الصناعية</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              📚
+            </div>
+            <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">الكتب الإلكترونية</span>
+            <h4 class="text-base font-bold text-slate-900 mt-3 leading-snug">مكتبة إلكترونية محدثة تضم الكتب والمراجع المستخدمة لجميع التخصصات، بما في ذلك مصادر كلية الجبيل الصناعية ومعهد الجبيل التقني</h4>
+          </div>
+          <a href="https://drive.google.com/drive/folders/1st5-xfcmc1CMZtErJf-M7d1XnfYFFgd4" class="mt-5 inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-900 hover:text-blue-700 font-bold text-sm border border-slate-200/80 transition-colors">
+            <span>الانتقال إلى الصفحة</span>
+            <span class="inline-block scale-x-[-1]">➤</span>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              💻
+            </div>
+            <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2.5 py-1 rounded-full">بوابة التعليم الإلكتروني</span>
+            <h4 class="text-base font-bold text-slate-900 mt-3 leading-snug">الموقع الرسمي المعتمد في كلية الجبيل الصناعية الذي يضم جميع المعلومات والخدمات الأكاديمية التي يحتاجها الطلاب</h4>
+          </div>
+          <a href="https://edugate.rcjy.edu.sa/jyup/init" class="mt-5 inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-slate-50 hover:bg-cyan-50 text-slate-900 hover:text-cyan-700 font-bold text-sm border border-slate-200/80 transition-colors">
+            <span>الانتقال إلى الصفحة</span>
+            <span class="inline-block scale-x-[-1]">➤</span>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              👩🏻‍💻
+            </div>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">نظام البلاك بورد (Blackboard)</span>
+            <h4 class="text-base font-bold text-slate-900 mt-3 leading-snug">المنصة الرقمية التي تتيح للطلاب وأعضاء هيئة التدريس الوصول إلى المواد الدراسية، وتسليم الواجبات، ومتابعة الدرجات</h4>
+          </div>
+          <a href="https://jic.blackboard.com/webapps/login/" class="mt-5 inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-900 hover:text-emerald-700 font-bold text-sm border border-slate-200/80 transition-colors">
+            <span>الانتقال إلى الصفحة</span>
+            <span class="inline-block scale-x-[-1]">➤</span>
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              🌐
+            </div>
+            <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full">مجتمع طلاب الكلية</span>
+            <h4 class="text-base font-bold text-slate-900 mt-3 leading-snug">القناة الرسمية التي يتواصل فيها مئات الطلاب، ويتبادلون المصادر الدراسية، ويطرحون الاستفسارات</h4>
+          </div>
+          <a href="https://t.me/JIC1978" class="mt-5 inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-slate-50 hover:bg-purple-50 text-slate-900 hover:text-purple-700 font-bold text-sm border border-slate-200/80 transition-colors">
+            <span>الانتقال إلى الصفحة</span>
+            <span class="inline-block scale-x-[-1]">➤</span>
+          </a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+              🌍
+            </div>
+            <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">صفحة الكلية الرسمية على LinkedIn</span>
+            <h4 class="text-base font-bold text-slate-900 mt-3 leading-snug">الصفحة الرسمية لكلية الجبيل الصناعية على منصة لينكدإن لمتابعة أخبار الكلية والفرص المهنية.</h4>
+          </div>
+          <a href="https://www.linkedin.com/company/jic" class="mt-5 inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-900 hover:text-blue-700 font-bold text-sm border border-slate-200/80 transition-colors">
+            <span>الانتقال إلى الصفحة</span>
+            <span class="inline-block scale-x-[-1]">➤</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM & GRADUATION PROJECT CREDITS -->
+    <div id="about" class="bg-gradient-to-bl from-slate-900 via-slate-950 to-blue-950 text-white rounded-2xl p-7 sm:p-9 shadow-xl relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-300 text-xs font-semibold">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i> فريق مشروع التخرج
+        </div>
+
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">بأيدي طلاب كلية الجبيل الصناعية، لإثراء المعرفة الطلابية</h3>
+        <p class="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+          نحن فريق مكون من أربعة طلاب في مشروع التخرج، نهدف إلى تحويل البحث الشامل إلى معلومات واضحة ومفيدة يمكن لجميع طلاب الكلية الاستفادة منها بكل سهولة.
+        </p>
+
+        <div class="pt-4 border-t border-slate-800">
+          <p class="text-xs text-slate-400 font-semibold mb-3">تم تطوير المشروع بواسطة:</p>
+          
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-slate-800/60 border border-slate-700/60 p-3 rounded-xl flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs">ي م</div>
+              <span class="text-xs font-bold text-slate-200">يوسف المولد</span>
+            </div>
+
+            <div class="bg-slate-800/60 border border-slate-700/60 p-3 rounded-xl flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">ع ف</div>
+              <span class="text-xs font-bold text-slate-200">عبدالله فلاتة</span>
+            </div>
+
+            <div class="bg-slate-800/60 border border-slate-700/60 p-3 rounded-xl flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs">أ ر</div>
+              <span class="text-xs font-bold text-slate-200">أسامة الراسي</span>
+            </div>
+
+            <div class="bg-slate-800/60 border border-slate-700/60 p-3 rounded-xl flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs">ع ق</div>
+              <span class="text-xs font-bold text-slate-200">عمر القحطاني</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs border-t border-slate-800 py-8 mt-12">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center text-white font-bold text-[10px]">JIC</div>
+        <p>© 2026 دليل كلية الجبيل الصناعية — نموذج مشروع تخرج</p>
+      </div>
+
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="#" class="hover:text-cyan-400 transition-colors">سياسة الخصوصية</a>
+        <a href="#" class="hover:text-cyan-400 transition-colors">شروط الاستخدام</a>
+        <a href="#" class="hover:text-cyan-400 transition-colors">دليل الطالب</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: Academic Calendar Side Drawer -->
+  <div id="calendarDrawer" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden transition-opacity">
+    <div class="fixed left-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl p-6 overflow-y-auto space-y-6">
+      <div class="flex items-center justify-between border-b pb-4">
+        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
+          التقويم الأكاديمي 2026
+        </h3>
+        <button onclick="toggleModal('calendarDrawer')" aria-label="إغلاق" class="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-xl bg-blue-50 border border-blue-200 text-sm">
+          <div class="font-bold text-blue-900">التسجيل للفصل الدراسي</div>
+          <div class="text-xs text-slate-600 mt-1">فترة تسجيل المقررات وتأكيد الجداول الدراسية.</div>
+          <div class="mt-2 text-xs font-semibold text-blue-700">25 أكتوبر - 02 نوفمبر</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-sm">
+          <div class="font-bold text-emerald-900">أسبوع الاختبارات النصفية</div>
+          <div class="text-xs text-slate-600 mt-1">جميع الأقسام الأكاديمية الهندسية والإدارية.</div>
+          <div class="mt-2 text-xs font-semibold text-emerald-700">10 ديسمبر - 18 ديسمبر</div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 text-sm">
+          <div class="font-bold text-purple-900">تسليم مشاريع التخرج</div>
+          <div class="text-xs text-slate-600 mt-1">مراجعة التقرير النهائي والعرض التقديمي للبوابة الإلكترونية.</div>
+          <div class="mt-2 text-xs font-semibold text-purple-700">15 يناير 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Instructor Review Toast / Message for Mr. Arshad -->
+  <div id="arshadModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-4 text-center">
+      <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+        🎓
+      </div>
+      <h3 class="text-xl font-bold text-slate-900">مراجعة التقييم جاهزة!</h3>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        "هؤلاء المحترفون سيجعلون مني زراً مفيداً، لا تقلق يا أستاذ أرشد :)"
+      </p>
+      <p class="text-xs text-slate-400 bg-slate-50 p-3 rounded-lg border">
+        تطبيق ويب لمشروع التخرج من إعداد: يوسف المولد، عبدالله فلاتة، أسامة الراسي، وعمر القحطاني.
+      </p>
+      <button onclick="toggleModal('arshadModal')" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl text-sm hover:bg-blue-700 transition-colors">
+        إغلاق الرسالة
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: Team Details -->
+  <div id="teamModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b pb-3">
+        <h3 class="text-lg font-bold text-slate-900">فريق التطوير</h3>
+        <button onclick="toggleModal('teamModal')" aria-label="إغلاق" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <ul class="space-y-3 text-sm text-slate-700">
+        <li class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg"><span class="w-2 h-2 rounded-full bg-cyan-500"></span> <strong>يوسف المولد</strong> — تصميم واجهة المستخدم والتطوير</li>
+        <li class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> <strong>عبدالله فلاتة</strong> — البيانات والمرافق</li>
+        <li class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg"><span class="w-2 h-2 rounded-full bg-purple-500"></span> <strong>أسامة الراسي</strong> — إعداد تقارير المشروع</li>
+        <li class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg"><span class="w-2 h-2 rounded-full bg-blue-500"></span> <strong>عمر القحطاني</strong> — هيكلة البوابة الإلكترونية</li>
+      </ul>
+      <button onclick="toggleModal('teamModal')" class="w-full py-2.5 bg-slate-900 text-white font-bold rounded-xl text-xs hover:bg-slate-800">تم</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    lucide.createIcons();
+
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.toggle('hidden');
+    }
+
+    function triggerArshadMessage() {
+      toggleModal('arshadModal');
+    }
+
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        ['calendarDrawer', 'arshadModal', 'teamModal'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el && !el.classList.contains('hidden')) {
+            el.classList.add('hidden');
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- INTERACTIVE MAP & PHOTO SCROLLER LOGIC -->
+  <script>
+    const buildingData = {
+      admin: {
+        category: "الإدارة والقيادة",
+        wing: "القطاع الأوسط",
+        icon: "fa-landmark",
+        iconGrad: "from-cyan-500 to-blue-600",
+        badgeBg: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+        title: "مبنى الإدارة والمصادر الإعلامية",
+        subtitle: "مبنى الإدارة + المسرح + مركز الكتب والطباعة",
+        photos: ["admin-1.jpg", "admin-2.jpg", "admin-3.jpg"],
+        desc: "يضم إدارة الكلية الرئيسية، والشؤون الأكاديمية والتدريب (جناح 1)، وقسم الدراسات العامة (جناح 6)، والمسرح الرئيسي، ومركز المصادر الإعلامية.",
+        facilities: [
+          "الشؤون الأكاديمية والتدريب (جناح 1)",
+          "قسم الدراسات العامة (جناح 6)",
+          "المسرح الرئيسي ومركز الطباعة والكتب"
+        ],
+        zone: "القطاع الأوسط"
+      },
+      elc: {
+        category: "مركز أكاديمي",
+        wing: "الساحة الشمالية",
+        icon: "fa-book-open",
+        iconGrad: "from-blue-500 to-indigo-600",
+        badgeBg: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+        title: "مركز اللغة الإنجليزية (ELC)",
+        subtitle: "برامج السنة التحضيرية والمهارات اللغوية",
+        photos: ["elc-1.jpg", "elc-2.jpg", "elc-3.jpg"],
+        desc: "مرفق متخصص لتدريس اللغة الإنجليزية وتأهيل طلاب السنة التحضيرية والتخصصات التقنية بالكفاءة اللغوية المهنية.",
+        facilities: [
+          "معامل اللغات والقاعات الذكية",
+          "مركز اختبارات اللغة الإنجليزية للسنة التحضيرية",
+          "مكاتب أعضاء هيئة التدريس ومركز التعلم الذاتي"
+        ],
+        zone: "الساحة الشمالية"
+      },
+      mmet: {
+        category: "قسم هندسي",
+        wing: "الأجنحة 2، 3 و 4",
+        icon: "fa-gears",
+        iconGrad: "from-amber-500 to-orange-600",
+        badgeBg: "bg-amber-500/20 text-amber-300 border-amber-500/30",
+        title: "قسم الهندسة الميكانيكية (MMET)",
+        subtitle: "التصنيع، الديناميكا الحرارية، والتصميم الهندسي",
+        photos: ["mmet-1.jpg", "mmet-2.jpg", "mmet-3.jpg"],
+        desc: "مجمع هندسي متخصص يضم ورش العمل الميكانيكية التطبيقية، وقاعات التصميم بمساعدة الحاسوب (CAD)، ومختبرات الديناميكا الحرارية ووحدات التصنيع.",
+        facilities: [
+          "ورش التصنيع وماكينات CNC",
+          "مختبرات الديناميكا الحرارية وطاقة الموائع",
+          "مراكز المحاكاة والتصميم CAD/CAM"
+        ],
+        zone: "الجناح الغربي"
+      },
+      chet: {
+        category: "قسم هندسي",
+        wing: "القطاع الشمالي الشرقي",
+        icon: "fa-flask",
+        iconGrad: "from-rose-500 to-pink-600",
+        badgeBg: "bg-rose-500/20 text-rose-300 border-rose-500/30",
+        title: "قسم الهندسة الكيميائية (CHET)",
+        subtitle: "تقنية العمليات الكيميائية والبوليمرات",
+        photos: ["chet-1.jpg", "chet-2.jpg", "chet-3.jpg"],
+        desc: "مختبرات متطورة للمعالجة الكيميائية، وتقنية البوليمرات، والكيمياء التحليلية لتأهيل الطلاب في هندسة العمليات الصناعية.",
+        facilities: [
+          "وحدات التحكم في العمليات الكيميائية",
+          "مختبرات البوليمرات والاختبارات التحليلية",
+          "منصات اختبارات السلامة الصناعية"
+        ],
+        zone: "المنطقة الشمالية الشرقية"
+      },
+      elet: {
+        category: "قسم هندسي",
+        wing: "القطاع الشرقي الأوسط",
+        icon: "fa-bolt",
+        iconGrad: "from-purple-500 to-indigo-600",
+        badgeBg: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+        title: "قسم الهندسة الكهربائية (ELET)",
+        subtitle: "القوى الكهربائية، الإلكترونيات، والأتمتة الصناعية",
+        photos: ["electrical 3.jpeg", "elet-2.jpg", "elet-3.jpg"],
+        desc: "يركز على هندسة القوى الكهربائية، والإلكترونيات الدقيقة، والآلات الدقيقة، والاتصالات، وتقنيات الأتمتة الصناعية.",
+        facilities: [
+          "مختبرات الجهد العالي وهندسة القوى",
+          "أجنحة محاكاة PLC والأتمتة الصناعية",
+          "مختبرات الإلكترونيات والمتحكمات الدقيقة"
+        ],
+        zone: "الساحة الشرقية"
+      },
+      mit: {
+        category: "قسم أكاديمي وتقني",
+        wing: "المجمع الشمالي الشرقي",
+        icon: "fa-laptop-code",
+        iconGrad: "from-emerald-500 to-teal-600",
+        badgeBg: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+        title: "قسم الإدارة وتقنية المعلومات (MIT)",
+        subtitle: "الحوسبة، الشبكات، وإدارة الأعمال",
+        photos: ["mit-1.jpg", "mit-2.jpg", "mit-3.jpg"],
+        desc: "مراكز حوسبة حديثة، ومختبرات شبكات، وأنظمة برمجيات المؤسسات، وقاعات دراسية متخصصة في إدارة الأعمال والمحاسبة.",
+        facilities: [
+          "مختبرات شبكات سيسكو والخوادم",
+          "محطات عمل هندسة البرمجيات",
+          "قاعات محاكاة الأعمال والمحاسبة"
+        ],
+        zone: "القطاع الشمالي الشرقي"
+      },
+      gym: {
+        category: "مرافق طلابية",
+        wing: "قطاع الترفيه الغربي",
+        icon: "fa-dumbbell",
+        iconGrad: "from-cyan-500 to-teal-500",
+        badgeBg: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+        title: "الصالة متعددة الأغراض والنادي الرياضي",
+        subtitle: "الأنشطة الرياضية والترفيه الطلابي",
+        photos: ["gym-1.jpg", "gym-2.jpg", "gym-3.jpg"],
+        desc: "مرفق رياضي متكامل يضم ملاعب رياضية مغلقة، وصالة لياقة بدنية، ومسبحاً، ومناطق مخصصة للأنشطة الطلابية.",
+        facilities: [
+          "نادي لياقة بدنية متكامل وصالة أوزان",
+          "ملاعب داخلية لكرة السلة والطائرة",
+          "غرف تبديل الملابس ومركز الأنشطة الطلابية"
+        ],
+        zone: "المجمع الغربي"
+      },
+      dorms: {
+        category: "سكن الطلاب",
+        wing: "المنطقة السكنية الشرقية",
+        icon: "fa-hotel",
+        iconGrad: "from-yellow-500 to-amber-600",
+        badgeBg: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
+        title: "السكن الجامعي للطلاب",
+        subtitle: "المجمعات السكنية والخدمات الطلابية",
+        photos: ["doorms 2.jpeg", "dorms-2.jpg", "dorms-3.jpg"],
+        desc: "مجمعات سكنية توفر السكن الطلابي، وصالات الطعام، وقاعات المذاكرة، واستراحات ترفيهية لطلاب الكلية المقيمين.",
+        facilities: [
+          "مباني السكن الجامعي الحديثة والتقليدية",
+          "صالة الطعام الرئيسية والمطاعم",
+          "العيادة الطبية والخدمات التجارية"
+        ],
+        zone: "المنطقة السكنية الشرقية"
+      }
+    };
+
+    let activeBuildingKey = 'admin';
+    let currentPhotoIndex = 0;
+
+    function renderBuildingPhoto() {
+      const data = buildingData[activeBuildingKey];
+      const photos = data.photos || [];
+      const photoEl = document.getElementById('cardPhoto');
+      const counterEl = document.getElementById('photoCounter');
+      const dotsEl = document.getElementById('photoDots');
+
+      if (photos.length === 0) return;
+
+      photoEl.src = photos[currentPhotoIndex];
+      photoEl.alt = `${data.title} - صورة ${currentPhotoIndex + 1}`;
+      counterEl.innerText = `صورة ${currentPhotoIndex + 1} / ${photos.length}`;
+
+      dotsEl.innerHTML = '';
+      photos.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `h-2 rounded-full transition-all ${idx === currentPhotoIndex ? 'w-4 bg-cyan-400' : 'w-2 bg-slate-500 hover:bg-slate-300'}`;
+        dot.onclick = () => {
+          currentPhotoIndex = idx;
+          renderBuildingPhoto();
+        };
+        dotsEl.appendChild(dot);
+      });
+    }
+
+    function nextBuildingPhoto() {
+      const photos = buildingData[activeBuildingKey].photos || [];
+      if (photos.length === 0) return;
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      renderBuildingPhoto();
+    }
+
+    function prevBuildingPhoto() {
+      const photos = buildingData[activeBuildingKey].photos || [];
+      if (photos.length === 0) return;
+      currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+      renderBuildingPhoto();
+    }
+
+    function showBuildingDetails(key) {
+      const data = buildingData[key];
+      if (!data) return;
+
+      activeBuildingKey = key;
+      currentPhotoIndex = 0;
+
+      document.getElementById('cardCategory').innerText = data.category;
+      document.getElementById('cardCategory').className = `px-2.5 py-1 rounded-md text-[10px] font-bold border ${data.badgeBg}`;
+      document.getElementById('cardWing').innerText = data.wing;
+      
+      const iconBg = document.getElementById('cardIconBg');
+      iconBg.className = `w-10 h-10 rounded-xl bg-gradient-to-tr ${data.iconGrad} flex items-center justify-center text-white text-base shrink-0 shadow-md`;
+      
+      document.getElementById('cardIcon').className = `fa-solid ${data.icon}`;
+      document.getElementById('cardTitle').innerText = data.title;
+      document.getElementById('cardSubtitle').innerText = data.subtitle;
+      document.getElementById('cardDescription').innerText = data.desc;
+      document.getElementById('cardZone').innerHTML = `<i class="fa-solid fa-location-dot text-cyan-400 ml-1"></i> ${data.zone}`;
+
+      // Render dynamic photos for the selected building
+      renderBuildingPhoto();
+
+      // Update Facilities List
+      const listContainer = document.getElementById('cardFacilities');
+      listContainer.innerHTML = '';
+      data.facilities.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center gap-1.5';
+        li.innerHTML = `<i class="fa-solid fa-circle-check text-cyan-400 text-[10px]"></i> ${item}`;
+        listContainer.appendChild(li);
+      });
+    }
+
+    function previewBuilding(key) {
+      showBuildingDetails(key);
+    }
+
+    function searchLocation() {
+      const query = document.getElementById('mapSearchInput').value.toLowerCase();
+      for (let key in buildingData) {
+        const b = buildingData[key];
+        if (
+          key.includes(query) ||
+          b.title.toLowerCase().includes(query) ||
+          b.subtitle.toLowerCase().includes(query) ||
+          b.category.toLowerCase().includes(query) ||
+          b.desc.toLowerCase().includes(query)
+        ) {
+          showBuildingDetails(key);
+          break;
+        }
+      }
+    }
+
+    function getDirections() {
+      const currentTitle = document.getElementById('cardTitle').innerText;
+      alert(`تحديد المسار وعرض التفاصيل لـ: ${currentTitle}`);
+    }
+
+    function filterCategory(cat) {
+      const pins = document.querySelectorAll('.map-pin-hotspot');
+      pins.forEach(pin => {
+        pin.style.opacity = '1';
+      });
+      if (cat === 'academic') showBuildingDetails('mit');
+      else if (cat === 'facility') showBuildingDetails('gym');
+      else if (cat === 'housing') showBuildingDetails('dorms');
+      else showBuildingDetails('admin');
+    }
+
+    // Initialize default card photo scroller on load
+    showBuildingDetails('admin');
+  </script>
+</body>
+</html>
